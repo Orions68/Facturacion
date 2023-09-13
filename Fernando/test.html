@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="printable">
+        <h3>Fernando Ariel Filippelli - Y0575228N Camino La Unión 31 38270 Valle de Guerra</h3>
+        <p>Factura a: ' . $client . '</p>
+        <div class="row">
+            <div class="column left" style="background-color:#aaa;">
+            Trabajo
+            </div>
+            <div class="column middle" style="background-color:#aaa;">
+            Repuestos
+            </div>
+            <div class="column right" style="background-color:#bbb; text-align:right;">
+            Precio
+            </div>
+            <div class="column moreright" style="background-color:#ccc; text-align:right;">
+            Mano de Obra
+            </div>
+            <div class="column moreright" style="background-color:#c1c; text-align:right;">
+            Parcial
+            </div>
+            <div class="column moreright" style="background-color:#c8c; text-align:right;">
+            I.G.I.C.
+            </div>
+            <div class="column moreright" style="background-color:#cfc; text-align:right;">
+            Total + I.G.I.C.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column left" style="background-color:#aaa;">
+            </div>
+            <div class="column middle" style="background-color:#bbb; text-align:right;">
+            </div>
+            <div class="column right" style="background-color:#ccc; text-align:right;">
+            </div>
+            <div class="column moreright" style="background-color:#c1c; text-align:right;">
+            </div>
+            <div class="column moreright" style="background-color:#c8c; text-align:right;">
+            </div>
+            <div class="column moreright" style="background-color:#ccc; text-align:right;">
+            </div>
+            <div class="column moreright" style="background-color:#cfc; text-align:right;">
+            </div>
+        </div>
+
+        <div class="column total" style="background-color:#000; text-align:right; color:white; margin-left:32%">Total I.G.I.C. Incluido: ' . number_format((float)$totaligic, 2, ",", ".") . ' €</div>';
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form action="addInvoice.php" method="post">
+    <input type="hidden" name="client" value="' . $client . '">
+    <input type="hidden" name="job" value="' . $job . '">
+    <input type="hidden" name="material" value="' . $material . '">
+    <input type="hidden" name="price" value="' . $price . '">
+    <input type="hidden" name="hand" value="' . $hand . '">
+    <input type="hidden" name="date" value="' . $date . '">
+    <input type="hidden" name="time" value="' . $time . '">
+    <div class='row'>
+    <div class='col-md-1'>
+    <input type="button" onclick="printIt(this.form)" value="Imprimir Ticket" style="width:160px; height:60px;">
+    </div>
+    <div class='col-md-4' style='width: 30%;'></div>
+    <div class='col-md-1'>
+    <input type="submit" value="Generar Ticket" style="width:160px; height:60px;">
+    </div>
+    </div>
+    </form>
+</body>
+</html>

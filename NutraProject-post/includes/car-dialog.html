@@ -1,0 +1,22 @@
+<!-- Modal Button, Se usa cuando se agregan artículos al carro de la compra, se muestra temporalmente por 3 segundos. -->
+<button id="addtocar" type="button" class="btn btn-primary" style="visibility: hidden;" data-bs-toggle="modal" data-bs-target="#toastDialog">Diálogo</button>
+
+<!-- Modal -->
+<div class="modal fade" id="toastDialog" tabindex="-1" aria-labelledby="toastDialogLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" id="toastDialogLabel">Agregado al Carro de la Compra </h4><img alt="Progress Bar" src="img/circle.gif"> <!-- Título del diálogo y un gif animado -->
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <h3 id="titlecar"></h3>
+          <br>
+          <h4 id="messagecar"></h4>
+      </div>
+      <div class="modal-footer">
+      <button type="button" id="close_add_dialog" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+  </div>
+  </div>
+</div>
