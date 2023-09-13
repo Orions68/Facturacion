@@ -20,6 +20,10 @@ include "includes/header.php";
                             echo $material[$i] . "<br>";
                         }
                     }
+                    else
+                    {
+                        echo '<script>alert ("No Mostro no mandaste nada");</script>';
+                    }
                     ?>
                 </div>
             </div>
