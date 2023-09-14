@@ -20,7 +20,7 @@ include "includes/header.php";
                             echo $material[$i] . "<br>";
                         }
                     }
-                    else
+                    if ($_POST["hand"] == "")
                     {
                         echo '<script>alert ("No Mostro no mandaste nada");</script>';
                     }
