@@ -22,7 +22,7 @@ include "includes/header.php";
                     }
                     if ($_POST["hand"] == "")
                     {
-                        echo '<script>alert ("No Mostro no mandaste nada");</script>';
+                        echo '<script>alert ("No Mostro no mandaste nada.");</script>';
                     }
                     ?>
                 </div>
