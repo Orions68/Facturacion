@@ -99,12 +99,12 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
                     {
                         if (last_invoice == invoice[j])
                         {
-                            html += service[j][$k] + "<br>";
+                            html += service[j][k] + "<br>";
                         }
                         else
                         {
                             last_invoice = invoice[j];
-                            html += "</td><td>" + service[j][$k] + "<br>";
+                            html += "</td><td>" + service[j][k] + "<br>";
                         }
                     }
                 }
@@ -115,12 +115,12 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
                     {
                         if (last_invoice == invoice[j])
                         {
-                            html += price[j][$k] + "<br>";
+                            html += price[j][k] + "<br>";
                         }
                         else
                         {
                             last_invoice = invoice[j];
-                            html += "</td><td>" + price[j][$k] + "<br>";
+                            html += "</td><td>" + price[j][k] + "<br>";
                         }
                     }
                 }
@@ -131,12 +131,12 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
                     {
                         if (last_invoice == invoice[j])
                         {
-                            html += qtties[j][$k] + "<br>";
+                            html += qtties[j][k] + "<br>";
                         }
                         else
                         {
                             last_invoice = invoice[j];
-                            html += "</td><td>" + qtties[j][$k] + "<br>";
+                            html += "</td><td>" + qtties[j][k] + "<br>";
                         }
                     }
                 }
