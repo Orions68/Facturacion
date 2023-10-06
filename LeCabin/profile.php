@@ -36,7 +36,7 @@ if (isset($_POST["email"])) // Si se recibe el email del cliente
 if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
 {
     $id = $_SESSION["client"]; // Asigno a la variable $id el valor de la sesión client.
-    $sql = "SELECT * FROM clients WHERE id=$id;"; // Preparo una consulta por la ID.
+    $sql = "SELECT * FROM client WHERE id=$id;"; // Preparo una consulta por la ID.
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_OBJ); // Asigno el resultado a la variable $row.
@@ -126,7 +126,7 @@ include "includes/nav_profile.php";
                             <?php
                                 $ok = false;
                                 $i = 0;
-                                $sql = "SELECT * FROM client INNER JOIN invoice, service WHERE client.id=$id AND client.id=invoice.client_id AND service.id=invoice.service_id;";
+                                $sql = "SELECT * FROM client INNER JOIN invoice ON client.id=invoice.client_id JOIN sold ON sold.invoice_id=invoice.id JOIN service ON service.id=sold.service_id WHERE client.id=$id;";
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute(); // Hago una consulta a la base de datos de los datos del alumno y los cursos.
                                 if ($stmt->rowCount() > 0) // Si hay resultados declaro las variables.
@@ -183,6 +183,7 @@ include "includes/nav_profile.php";
                         </div>
                     </div>
                 </div>
+                <br><br><br><br>
             </div>
         <div class="col-md-1" style="width: 2%;"></div>
     </div>
