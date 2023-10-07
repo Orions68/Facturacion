@@ -25,7 +25,7 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
 {
     window.page = page; // Asigno la variable page, a la variable global window.page.
     window.qtty = qtty; // Asigno la variable qtty, a la variable global window.qtty.
-    var length = service.length; // La variable length será del tamaño del array id.
+    var length = invoice.length; // La variable length será del tamaño del array id.
     window.length = length; // Hago global la variable length.
     var btn_next = document.getElementById("next"); // Asigno a la variable btn_next la id del botón con id next, que muestra los resultados siguientes.
     var btn_prev = document.getElementById("prev"); // Asigno a la variable btn_prev la id del botón con id prev, que muestra los resultados anteriores.
@@ -89,91 +89,41 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
         {
             var html = "<table><tr><th>Número de Factura</th><th>Servicio</th><th>Precio</th><th>Cantidad</th><th>Parcial I.V.A. Incluido</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
             var my_date = date[0].split("-");
-            let last_invoice = invoice[0];
             for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
             {
-                html += "<tr><td style='width: 150px;'>" + invoice[i] + "</td><td style='width: 250px;'>";
-                for (j = 0; j < length; j++) // Hago un bucle hasta la cantidad de resultados a mostrar.
+                if (i < length) // Si i es menor que el tamaño del array.
                 {
-                    for (k = 0; k < service[j].length; k++)
+                    // html += "<tr><td>" + service[i] + "</td><td>" + price[i] + " €</td><td>" + qtties[i] + "</td><td>" + total[i] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>";
+                    html += "<tr><td style='width: 150px;'>" + invoice[i] + "</td><td style='width: 250px;'>";
+                    for (k = 0; k < service[i].length; k++)
                     {
-                        if (last_invoice == invoice[j])
-                        {
-                            html += service[j][k] + "<br>";
-                        }
-                        else
-                        {
-                            last_invoice = invoice[j];
-                            html += "</td><td>" + service[j][k] + "<br>";
-                        }
+                        html += service[i][k] + "<br>";
                     }
+                    html += "</td><td style='text-align: right; width: 100px;'>";
+                    for (k = 0; k < service[i].length; k++)
+                    {
+                        html += price[i][k] + "<br>";
+                    }
+                    html += "</td><td style='text-align: right;'>";
+                    for (k = 0; k < service[i].length; k++)
+                    {
+                        html += qtties[i][k] + "<br>";
+                    }
+                    html += "</td><td style='text-align: right; width: 150px;'>";
+                    for (k = 0; k < service[i].length; k++)
+                    {
+                        html += (parseFloat(price[i][k]) * parseFloat(qtties[i][k])).toFixed(2) + " $<br>";
+                    }
+                    html += "</td><td>";
+                    html += total[i] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>"; // Cierro la tabla.
                 }
-                html += "</td><td style='text-align: right; width: 100px;'>";
-                for (j = 0; j < length; j++) // Hago un bucle hasta la cantidad de resultados a mostrar.
+                else
                 {
-                    for (k = 0; k < service[j].length; k++)
-                    {
-                        if (last_invoice == invoice[j])
-                        {
-                            html += price[j][k] + "<br>";
-                        }
-                        else
-                        {
-                            last_invoice = invoice[j];
-                            html += "</td><td>" + price[j][k] + "<br>";
-                        }
-                    }
+                    break;
                 }
-                html += "</td><td style='text-align: right;'>";
-                for (j = 0; j < length; j++) // Hago un bucle hasta la cantidad de resultados a mostrar.
-                {
-                    for (k = 0; k < service[j].length; k++)
-                    {
-                        if (last_invoice == invoice[j])
-                        {
-                            html += qtties[j][k] + "<br>";
-                        }
-                        else
-                        {
-                            last_invoice = invoice[j];
-                            html += "</td><td>" + qtties[j][k] + "<br>";
-                        }
-                    }
-                }
-                html += "</td><td style='text-align: right; width: 150px;'>";
-                for (j = 0; j < length; j++) // Hago un bucle hasta la cantidad de resultados a mostrar.
-                {
-                    for (k = 0; k < service[j].length; k++)
-                    {
-                        if (last_invoice == invoice[j])
-                        {
-                            html += (parseFloat(price[j][k]) * parseFloat(qtties[j][k])).toFixed(2) + " $<br>";
-                        }
-                        else
-                        {
-                            last_invoice = invoice[j];
-                            html += "</td><td>" + (parseFloat(price[j][k]) * parseFloat(qtties[j][k])).toFixed(2) + " $<br>";
-                        }
-                    }
-                }
-                html += "</td><td>";
-                html += total[0] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[0] + "</td></tr>"; // Cierro la tabla.
             }
             html += "</table>";
             table.innerHTML = html; // La muestro en pantalla.
-            // for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
-            // {
-            //     if (i < length) // Si i es menor que el tamaño del array.
-            //     {
-            //         html += "<tr><td>" + invoice[i] + "</td><td>" + service[i] + "</td><td>" + price[i] + " $</td><td style='text-align: right;'><br>" + qtties[i] + "</td><td style='text-align: right;'>" + price[i] * qtties[i] + " $</td><td>" + total[i] + " $</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>";
-            //     }
-            //     else
-            //     {
-            //         break;
-            //     }
-            // }
-            // html += "</table>";
-            // table.innerHTML = html; // La muestro en pantalla.
         }
         else // Si se llama desde index.
         {

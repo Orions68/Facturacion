@@ -121,7 +121,6 @@ if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
                                 <h2>Tus Compras</h2>
                                 <br><br>
                             <?php
-
                             $index = 0;
                             $ids = [];
                             $array = [];

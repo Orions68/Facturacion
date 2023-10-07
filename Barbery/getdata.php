@@ -16,31 +16,6 @@ function getClient($conn, $id)
     }
 }
 
-// function getService($conn, $services, $where)
-// {
-//     global $service, $price;
-//     for ($i = 0; $i < count($services); $i++)
-// 	{
-// 		for ($j = 0; $j < count($services[$i]); $j++)
-// 		{
-// 			$sql = "SELECT service, price FROM service WHERE id='" . $services[$i][$j] . "';";
-// 			$stmt = $conn->prepare($sql);
-// 			$stmt->execute();
-// 			$row_service = $stmt->fetch(PDO::FETCH_OBJ);
-// 			if ($where == "html")
-// 			{
-// 				$service[$i][$j] = $row_service->service . "<br>";
-// 				$price[$i][$j] = $row_service->price . " $<br>";
-// 			}
-// 			else
-// 			{
-// 				$service[$i][$j] = $row_service->service . "\n";
-// 				$price[$i][$j] = $row_service->price . " $\n";
-// 			}
-// 		}
-// 	}
-// }
-
 function getService($conn, $services, $where)
 {
     global $service, $price;
