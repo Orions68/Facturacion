@@ -130,7 +130,7 @@ if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
                             $price = [];
                             $price[] = [];
 
-                            $sql = "SELECT invoice_id FROM sold INNER JOIN invoice WHERE invoice.client_id=$id AND sold.invoice_id=invoice.id GROUP BY invoice_id;";
+                            $sql = "SELECT invoice_id FROM sold JOIN invoice ON sold.invoice_id=invoice.id WHERE invoice.client_id=$id GROUP BY invoice_id;";
                             $stmt = $conn->prepare($sql);
                             $stmt->execute();
                             if ($stmt->rowCount() > 0)
@@ -142,7 +142,7 @@ if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
                                     $index++;
                                 }
                                 $index = 0;
-                                $sql = "SELECT invoice_id, invoice.total, invoice.inv_date, invoice.inv_time FROM sold INNER JOIN invoice WHERE invoice.client_id=$id GROUP BY total;";
+                                $sql = "SELECT invoice_id, invoice.total, invoice.inv_date, invoice.inv_time FROM sold JOIN invoice ON sold.invoice_id=invoice.id WHERE invoice.client_id=$id GROUP BY invoice_id;";
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 while ($row = $stmt->fetch(PDO::FETCH_OBJ))

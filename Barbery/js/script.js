@@ -25,7 +25,14 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
 {
     window.page = page; // Asigno la variable page, a la variable global window.page.
     window.qtty = qtty; // Asigno la variable qtty, a la variable global window.qtty.
-    var length = invoice.length; // La variable length será del tamaño del array id.
+    if (where="index")
+    {
+        var length = service.length;
+    }
+    else
+    {
+        var length = invoice.length; // La variable length será del tamaño del array id.
+    }
     window.length = length; // Hago global la variable length.
     var btn_next = document.getElementById("next"); // Asigno a la variable btn_next la id del botón con id next, que muestra los resultados siguientes.
     var btn_prev = document.getElementById("prev"); // Asigno a la variable btn_prev la id del botón con id prev, que muestra los resultados anteriores.
@@ -88,12 +95,11 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
         if (where == "profile") // Si se llama desde el perfil del cliente.
         {
             var html = "<table><tr><th>Número de Factura</th><th>Servicio</th><th>Precio</th><th>Cantidad</th><th>Parcial I.V.A. Incluido</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
-            var my_date = date[0].split("-");
             for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
             {
                 if (i < length) // Si i es menor que el tamaño del array.
                 {
-                    // html += "<tr><td>" + service[i] + "</td><td>" + price[i] + " €</td><td>" + qtties[i] + "</td><td>" + total[i] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>";
+                    var my_date = date[i].split("-");
                     html += "<tr><td style='width: 150px;'>" + invoice[i] + "</td><td style='width: 250px;'>";
                     for (k = 0; k < service[i].length; k++)
                     {
