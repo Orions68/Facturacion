@@ -25,7 +25,7 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
 {
     window.page = page; // Asigno la variable page, a la variable global window.page.
     window.qtty = qtty; // Asigno la variable qtty, a la variable global window.qtty.
-    if (where="index")
+    if (where == "index")
     {
         var length = service.length;
     }

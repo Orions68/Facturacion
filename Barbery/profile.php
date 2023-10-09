@@ -172,7 +172,7 @@ if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
                                 $index = 0;
                                 for ($z = 0; $z < count($ids); $z++)
                                 {
-                                    recursive($index, $serv, $qtt, $ids2, $i, 0);
+                                    recursive($index, $serv, $qtt, $ids2, $i);
                                     $i++;
                                     $index++;
                                 }

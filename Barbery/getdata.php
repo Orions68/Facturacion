@@ -67,8 +67,9 @@ function getService($conn, $services, $where)
     }
 }
 
-function recursive($index, $service, $qtt, $id, $i, $j) // Recibe el $index, la cantidad de servicios encontrados en todas las facturas, el array $service, la cantidad de cada servicio $qtt, el array con las ID de las facturas $id, $i es el indice de la factura actual ya que esta función se llama en un bucle y $j que siempre es 0.
+function recursive($index, $service, $qtt, $id, $i) // Recibe el $index, la cantidad de servicios encontrados en todas las facturas, el array $service, la cantidad de cada servicio $qtt, el array con las ID de las facturas $id, $i es el indice de la factura actual ya que esta función se llama en un bucle y $j que siempre es 0.
 {
+    $j = 0;
     global $index, $array, $qtty; // Hago globales las variables ya declaradas $index, contiene en índice, $array y $qtty.
     $count = count($service); // Asigno a $count el tamaño del array $service
     while ($index < $count - 1 && $id[$index] == $id[$index + 1]) // Mientras $index sea menor que el tamaño del array $service Y las ID de las facturas contiguas sea iguales.
