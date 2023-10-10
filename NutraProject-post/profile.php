@@ -30,7 +30,7 @@ if (isset($_POST["email"])) // Si se recibe el email del cliente
         unlink($array[0] . "login.txt"); // Lo borro.
     }
     $pass = htmlspecialchars($_POST["pass"]); // Asigno la Password a la variable $pass.
-    $sql = "SELECT * FROM clients WHERE email='$email';"; // Preparo la consulta con el email.
+    $sql = "SELECT * FROM client WHERE email='$email';"; // Preparo la consulta con el email.
     $stmt = $conn->prepare($sql); // Hago la consulta a la base de datos con la conexión y la consulta recibidas.
     $stmt->execute(); // La ejecuto.
     if ($stmt->rowCount() > 0) // Si hubo resultados.
