@@ -3,7 +3,7 @@ session_start(); // Incluyo el session_start() ya que se usará en casi todos lo
 try // Intenta la conexión
 {
 	// $conn = new PDO('mysql:host=fdb32.atspace.me;dbname=3865745_nutraproject', "3865745_nutraproject", "Anubis68");
-    $conn = new PDO('mysql:host=localhost;dbname=nutraproject', "root", "Anubis68");
+    $conn = new PDO('mysql:host=localhost;dbname=nutraproject', "root", "Anubis@68");
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e) // En caso de error

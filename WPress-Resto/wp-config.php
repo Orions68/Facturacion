@@ -26,7 +26,7 @@ define( 'DB_NAME', 'wpresstest' );
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'Anubis68' );
+define( 'DB_PASSWORD', 'Anubis@68' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
