@@ -21,24 +21,24 @@ function next(where) // La Función next muestra la página siguiente.
     }
 }
 
-function change(page, qtty, where) // Función que muestra los resultados de a 6 en filas y columnas de bootstrap, recibe la pagina page y la cantidad de resultados a mostrar qtty.
+function change(page, qtty, index) // Función que muestra los resultados de a 6 en filas y columnas de bootstrap, recibe la pagina page, la cantidad de resultados a mostrar qtty y true si viene de index y false si viene de profile.
 {
     window.page = page; // Asigno la variable page, a la variable global window.page.
     window.qtty = qtty; // Asigno la variable qtty, a la variable global window.qtty.
-    if (where == "index")
+    if (index) // Si viene de index
     {
-        var length = service.length;
+        var length = service.length; // Necesito el tamaño del array de servicios(Los Servicios en la Base de Datos).
     }
-    else
+    else // 
     {
-        var length = invoice.length; // La variable length será del tamaño del array id.
+        var length = invoice.length; // Necesito el tamaño del array de facturas(invoice).
     }
     window.length = length; // Hago global la variable length.
     var btn_next = document.getElementById("next"); // Asigno a la variable btn_next la id del botón con id next, que muestra los resultados siguientes.
     var btn_prev = document.getElementById("prev"); // Asigno a la variable btn_prev la id del botón con id prev, que muestra los resultados anteriores.
     var page_span = document.getElementById("page"); // Asigno a la variable page_span la id del span page, que muestra el número de página.
     var table = document.getElementById("table"); // ID del div que contendrá las imágenes de los artículos y los formularios.
-    if (where == "profile") // Si se llama desde el perfil del cliente.
+    if (!index) // Si se llama desde el perfil del cliente.
     {
         var html = "<table><tr><th>Número de Factura</th><th>Servicio</th><th>Precio</th><th>Cantidad</th><th>Parcial I.V.A. Incluido</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
         for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
@@ -46,23 +46,24 @@ function change(page, qtty, where) // Función que muestra los resultados de a 6
             if (i < length) // Si i es menor que el tamaño del array.
             {
                 var my_date = date[i].split("-");
+                let size = service[i].length;
                 html += "<tr><td style='width: 150px;'>" + invoice[i] + "</td><td style='width: 250px;'>";
-                for (k = 0; k < service[i].length; k++)
+                for (k = 0; k < size; k++)
                 {
                     html += service[i][k] + "<br>";
                 }
                 html += "</td><td style='text-align: right; width: 100px;'>";
-                for (k = 0; k < service[i].length; k++)
+                for (k = 0; k < size; k++)
                 {
                     html += price[i][k] + "<br>";
                 }
                 html += "</td><td style='text-align: right;'>";
-                for (k = 0; k < service[i].length; k++)
+                for (k = 0; k < size; k++)
                 {
                     html += qtties[i][k] + "<br>";
                 }
                 html += "</td><td style='text-align: right; width: 150px;'>";
-                for (k = 0; k < service[i].length; k++)
+                for (k = 0; k < size; k++)
                 {
                     html += (parseFloat(price[i][k]) * parseFloat(qtties[i][k])).toFixed(2) + " $<br>";
                 }

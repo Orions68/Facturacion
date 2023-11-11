@@ -216,9 +216,9 @@ if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
                                 <div id="table"></div>
                                 <br>
                                 <span id="page"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button onclick="prev('profile')" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button onclick="next('profile')" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
-                                <script>change(1, 5, 'profile');</script>
+                                <button onclick="prev(false)" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button onclick="next(false)" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
+                                <script>change(1, 5, false);</script>
                                 <?php
                                 // Se muestran las facturas del cliente.
                             }
