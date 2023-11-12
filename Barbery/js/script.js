@@ -1,6 +1,6 @@
 function totNumPages() // Función para la paginación
 {
-    return Math.ceil(window.length / window.qtty); // Calcula la cantidad de páginas que habrá, divide la cantidad de eventos por 6 resultados a mostrar por página.
+    return Math.ceil(window.length / window.qtty); // Calcula la cantidad de páginas que habrá, divide la cantidad de datos por 5 resultados a mostrar por página.
 }
 
 function prev(where) // Función para ir a la página anterior.
@@ -8,7 +8,7 @@ function prev(where) // Función para ir a la página anterior.
     if (window.page > 1) // Si la página actual es mayor que la página 1.
     {
         window.page--; // Decrementa la variable page, página anterior.
-        change(window.page, window.qtty, where); // Llama a la función change pasandole el número de página a mostrar y la cantidad de eventos a mostrar que siempre es 6.
+        change(window.page, window.qtty, where); // Llama a la función change pasandole el número de página a mostrar y la cantidad de datos a mostrar que siempre es 5.
     }
 }
 
@@ -21,7 +21,7 @@ function next(where) // La Función next muestra la página siguiente.
     }
 }
 
-function change(page, qtty, index) // Función que muestra los resultados de a 6 en filas y columnas de bootstrap, recibe la pagina page, la cantidad de resultados a mostrar qtty y true si viene de index y false si viene de profile.
+function change(page, qtty, index) // Función que muestra los resultados de a 5 en la tabla, recibe la página page, la cantidad de resultados a mostrar qtty y true si viene de index y false si viene de profile.
 {
     window.page = page; // Asigno la variable page, a la variable global window.page.
     window.qtty = qtty; // Asigno la variable qtty, a la variable global window.qtty.
@@ -37,7 +37,7 @@ function change(page, qtty, index) // Función que muestra los resultados de a 6
     var btn_next = document.getElementById("next"); // Asigno a la variable btn_next la id del botón con id next, que muestra los resultados siguientes.
     var btn_prev = document.getElementById("prev"); // Asigno a la variable btn_prev la id del botón con id prev, que muestra los resultados anteriores.
     var page_span = document.getElementById("page"); // Asigno a la variable page_span la id del span page, que muestra el número de página.
-    var table = document.getElementById("table"); // ID del div que contendrá las imágenes de los artículos y los formularios.
+    var table = document.getElementById("table"); // ID del div que contendrá la tabla con los datos.
     if (!index) // Si se llama desde el perfil del cliente.
     {
         var html = "<table><tr><th>Número de Factura</th><th>Servicio</th><th>Precio</th><th>Cantidad</th><th>Parcial I.V.A. Incluido</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
@@ -180,7 +180,7 @@ function verify() // Función para validar las contraseñas de registro de alumn
     if (pass.value != pass2.value) // Verifico si los valores en los input pass y pass2 no coinciden.
     {
         toast(1, "Hay un Error", "Las contraseñas no coinciden, has escrito: " + pass.value + " y " + pass2.value); // Si no coinciden muestro error.
-        return false; // devulvo false, el formulario no se envía.
+        return false; // Devuelvo false, el formulario no se envía.
     }
     else // Si son iguales.
     {
