@@ -194,7 +194,7 @@ include "includes/nav.html";
                                 echo "<script>var length;</script>";
                                 echo "<script>length = " . $length . ";</script>";
                                 echo "<script>var id = [];</script>";
-                                echo "<script>var name = [];</script>";
+                                echo "<script>var username = [];</script>";
                                 echo "<script>var phone = [];</script>";
                                 echo "<script>var email = [];</script>";
                                 echo "<script>var bday = [];</script>";
@@ -203,7 +203,7 @@ include "includes/nav.html";
                                 for ($i = 0; $i < $length; $i++)
                                 {
                                     echo "<script>id[" . $i . "] = '" . $data["data"][$i]["id"] . "';</script>";
-                                    echo "<script>name[" . $i . "] = '" . $data["data"][$i]["name"] . "';</script>";
+                                    echo "<script>username[" . $i . "] = '" . $data["data"][$i]["name"] . "';</script>";
                                     echo "<script>phone[" . $i . "] = '" . $data["data"][$i]["phone"] . "';</script>";
                                     echo "<script>email[" . $i . "] = '" . $data["data"][$i]["email"] . "';</script>";
                                     echo "<script>bday[" . $i . "] = '" . $data["data"][$i]["bday"] . "';</script>";
@@ -214,8 +214,8 @@ include "includes/nav.html";
                                 <div id="TableList"></div>
                                 <br>
                                 <span id="page"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button onclick="javascript:prev()" id="prev">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button onclick="javascript:next()" id="next">Siguientes Resultados</button><br>
+                                <button onclick="javascript:prev()" id="prev" class="btn btn-danger btn-lg">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button onclick="javascript:next()" id="next" class="btn btn-primary btn-lg">Siguientes Resultados</button><br>
                                 <script>change(1, 5, length);</script>
                                 <?php
                             }

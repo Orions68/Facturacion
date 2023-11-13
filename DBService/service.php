@@ -200,6 +200,9 @@
 					chdir("users"); // Cambio a la carpeta users.
 					rmdir($id); // Borro la carpeta del usuario que es su ID.
 				}
+                $sql = "SET @count = 0; UPDATE contactos SET id = @count:= @count + 1; ALTER TABLE contactos AUTO_INCREMENT = 1;"; // Arreglo los índices de las facturas.
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
 				response(200, "Se Ha Borrado Correctamente El Usuario con ID: ", $id); // Envio la respuesta que se ha borrado el usuario.
 			}
 			else // Si no se modificó la cantidad de filas.

@@ -87,7 +87,7 @@ function toast(warn, ttl, msg) // Función para mostrar el Dialogo con los mensa
 
 function totNumPages()
 {
-    return Math.ceil(event.length / window.qtty);
+    return Math.ceil(window.length / window.qtty);
 }
     
     function prev()
@@ -95,7 +95,7 @@ function totNumPages()
         if (window.page > 1)
         {
             window.page--;
-            change(window.page, window.qtty);
+            change(window.page, window.qtty, window.length);
         }
     }
 
@@ -104,7 +104,7 @@ function totNumPages()
         if (window.page < totNumPages())
         {
             window.page++;
-            change(window.page, window.qtty);
+            change(window.page, window.qtty, window.length);
         }
     }
 
@@ -112,18 +112,17 @@ function totNumPages()
     {
         window.page = page;
         window.qtty = qtty;
-        var my_path = [];
+        window.length = length;
         var btn_next = document.getElementById("next");
         var btn_prev = document.getElementById("prev");
         var TableList = document.getElementById("TableList");
         var page_span = document.getElementById("page");
         var html = "<table><tr><th>ID</th><th>Nombre</th><th>Teléfono</th><th>E-mail</th><th>Cumpleaños</th><th>Genero</th><th>Imágen de Perfil</th></tr><tr>";
-        for (var i = (page - 1) * qtty; i < (page * qtty); i++)
+        for (i = (page - 1) * qtty; i < page * qtty; i++)
         {
-            if (i < name.length)
+            if (i < length)
             {
-                my_path[i] = path[i].split("¡");
-                html += "<td>" + id[i] + "</td><td>" + name[i] + "</td><td>" + phone[i] + "</td><td>" + email[i] + "</td><td>" + bday[i] + "</td><td>" + genre[i] + "</td><td><a href='javascript:showImage(\"" + img[i] + "\")'><img src='" + img[i] + "' width='100' height='100' alt='Imágen de Perfil'></a></td></tr><tr>";
+                html += "<td>" + id[i] + "</td><td>" + username[i] + "</td><td>" + phone[i] + "</td><td>" + email[i] + "</td><td>" + bday[i] + "</td><td>" + genre[i] + "</td><td><a href='javascript:showImage(\"" + img[i] + "\")'><img src='" + img[i] + "' width='100' height='100' alt='Imágen de Perfil'></a></td></tr><tr>";
             }
         }
         html += "</tr></table>";
