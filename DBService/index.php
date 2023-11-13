@@ -153,7 +153,7 @@ include "includes/nav.html";
                     if (isset($_POST["read"])) // Si se solicitó la lectura de los datos de una ID o de todos los resultados.
                     {
                         $id = $_POST["id"]; // Asigno a la variable $id lo que llega por $_POST["id"].
-                        if ($id != "") // Si contiuene algún dato.
+                        if ($id != "") // Si contiene algún dato.
                         {
                             session_unset(); // Rompo la sesión
                             if ($data["status"] == 200) // Si el estado devuelve el código 200

@@ -7,7 +7,7 @@ if (isset($_POST["email"])) // Verifco si llega una solicitud con un email a est
 {
     $email =  urlencode($_POST["email"]); // Asigno a la variable $email el contenido del $_POST["email"] y lo codifico con urlencode.
 
-    $url = "http://localhost/Proyectos/DBService/service.php?forget=1&email=$email"; // Asigno a la variable $url la url del servicio pasandole los datos por GET.
+    $url = "http://localhost/DBService/service.php?forget=1&email=$email"; // Asigno a la variable $url la url del servicio pasandole los datos por GET.
 
     $data = json_decode(file_get_contents("$url"), true); // Asigno a la variable $data el resultado decodificado de la llamada al servicio.
 }

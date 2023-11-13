@@ -6,7 +6,7 @@ ob_start();
 		private $host = 'localhost';
 		private $dbname = 'web_service';
 		private $user = 'root';
-		private $pass = 'Anubis68';
+		private $pass = 'Anubis@68';
 		
 		public function __construct()
 		{

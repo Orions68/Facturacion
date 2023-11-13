@@ -58,7 +58,7 @@
 							$path = "img/male.jpg"; // Asigno a $path la imagen con contorno masculino.
 						}
 					}
-					$stmt = $conn->prepare("UPDATE contactos SET path='$path' WHERE id='$id';"); // Preparo una consulta para Actualizar la tabla.
+					$stmt = $conn->prepare("UPDATE contactos SET path='$path' WHERE id=$id;"); // Preparo una consulta para Actualizar la tabla.
 					$stmt->execute(); // La Ejecuto.
 
 					response(200, "Se Ha Agregado Correctamente El Usuario: ", $name); // Paso a la función response el códdigo 200, el mensajes y el dato.
@@ -148,22 +148,22 @@
 				{
 					if ($phone == $old_phone) // Verifico si el teléfono es el mismo que ya estaba.
 					{
-						$sql = "UPDATE contactos SET name='$name', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id='$id'";
+						$sql = "UPDATE contactos SET name='$name', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 						// Preparo la consulta para modificar con la nueva contraseña pero sin email ni phone ya que el usuario no los cambió y como son claves únicas
 						// no se puede volver a insertarlos en la base de datos.
 					}
 					else // Si el teléfono es diferente, el usuario lo cambió y ya se verifico que no está repetido en la base de datos.
 					{
-						$sql = "UPDATE contactos SET name='$name', phone='$phone', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id='$id'";
+						$sql = "UPDATE contactos SET name='$name', phone='$phone', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 					}
 				}
 				else if ($phone == $old_phone) // Si el email es distinto pero el phone es el mismo.
 				{
-					$sql = "UPDATE contactos SET name='$name', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id='$id'";
+					$sql = "UPDATE contactos SET name='$name', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 				}
 				else // Si es distinto el email y el teléfono.
 				{
-					$sql = "UPDATE contactos SET name='$name', phone='$phone', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id='$id'";
+					$sql = "UPDATE contactos SET name='$name', phone='$phone', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 				}
 				$stmt = $conn->prepare($sql);
 				$stmt->execute();
