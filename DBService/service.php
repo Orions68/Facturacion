@@ -18,7 +18,7 @@
 			$path = "";
 			$hash = password_hash($pass, PASSWORD_DEFAULT); // Cifro la contraseña.
 
-			$stmt = $conn->prepare("SELECT phone, email FROM contactos"); // Preparo la consulta SQL a la conexión $conn.
+			$stmt = $conn->prepare("SELECT phone, email FROM contacto"); // Preparo la consulta SQL a la conexión $conn.
 			$stmt->execute(); // La Ejecuto.
 			while($row = $stmt->fetch(PDO::FETCH_OBJ)) // Mientras haya resultados, los asigno a la variable $row.
 			{
@@ -31,7 +31,7 @@
 
 			if (!$already) // Si $already es false
 			{
-				$sql = "INSERT INTO contactos (name, phone, email, pass, bday, gender, path) VALUES('$name', '$phone', '$email', '$hash', '$bday', '$gender', '$path')";
+				$sql = "INSERT INTO contacto (name, phone, email, pass, bday, gender, path) VALUES('$name', '$phone', '$email', '$hash', '$bday', '$gender', '$path')";
 				$stmt = $conn->prepare($sql);
 				$stmt->execute(); // Creo la consulta para insertar, la preparo y la ejecuto.
 				$id = $conn->lastInsertId(); // Recojo en la variable $id la id de la fila insertada.
@@ -58,7 +58,7 @@
 							$path = "img/male.jpg"; // Asigno a $path la imagen con contorno masculino.
 						}
 					}
-					$stmt = $conn->prepare("UPDATE contactos SET path='$path' WHERE id=$id;"); // Preparo una consulta para Actualizar la tabla.
+					$stmt = $conn->prepare("UPDATE contacto SET path='$path' WHERE id=$id;"); // Preparo una consulta para Actualizar la tabla.
 					$stmt->execute(); // La Ejecuto.
 
 					response(200, "Se Ha Agregado Correctamente El Usuario: ", $name); // Paso a la función response el códdigo 200, el mensajes y el dato.
@@ -77,7 +77,7 @@
 			$id = $_GET["id"]; // Recibo la ID.
 			if($id != "") // Si no está vacía.
 			{
-				$sql = $conn->prepare("SELECT * FROM contactos WHERE id=:id"); // Solicito todos los datos del usuario con id $id.
+				$sql = $conn->prepare("SELECT * FROM contacto WHERE id=:id"); // Solicito todos los datos del usuario con id $id.
 				$sql->bindValue(':id', $id);
 				$sql->execute();
 				$sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -94,7 +94,7 @@
 			}
 			else // Si la ID viene vacía.
 			{
-				$sql = $conn->prepare("SELECT * FROM contactos"); // Solicito todos los resultados de la base de datos.
+				$sql = $conn->prepare("SELECT * FROM contacto"); // Solicito todos los resultados de la base de datos.
 				$sql->execute();
 				$sql->setFetchMode(PDO::FETCH_ASSOC);
 				$stmt = $sql->fetchAll();
@@ -124,7 +124,7 @@
 			$gender = $_GET["gender"];
 			$path = $_GET["path"];
 
-			$stmt = $conn->prepare("SELECT id, phone, email FROM contactos"); // Solicito la ID phone e email de toda la base de datos.
+			$stmt = $conn->prepare("SELECT id, phone, email FROM contacto"); // Solicito la ID phone e email de toda la base de datos.
 			$stmt->execute();
 			while($row = $stmt->fetch(PDO::FETCH_OBJ)) // Miestras haya resultados los asigno a la variable $row.
 			{
@@ -148,22 +148,22 @@
 				{
 					if ($phone == $old_phone) // Verifico si el teléfono es el mismo que ya estaba.
 					{
-						$sql = "UPDATE contactos SET name='$name', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+						$sql = "UPDATE contacto SET name='$name', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 						// Preparo la consulta para modificar con la nueva contraseña pero sin email ni phone ya que el usuario no los cambió y como son claves únicas
 						// no se puede volver a insertarlos en la base de datos.
 					}
 					else // Si el teléfono es diferente, el usuario lo cambió y ya se verifico que no está repetido en la base de datos.
 					{
-						$sql = "UPDATE contactos SET name='$name', phone='$phone', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+						$sql = "UPDATE contacto SET name='$name', phone='$phone', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 					}
 				}
 				else if ($phone == $old_phone) // Si el email es distinto pero el phone es el mismo.
 				{
-					$sql = "UPDATE contactos SET name='$name', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+					$sql = "UPDATE contacto SET name='$name', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 				}
 				else // Si es distinto el email y el teléfono.
 				{
-					$sql = "UPDATE contactos SET name='$name', phone='$phone', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+					$sql = "UPDATE contacto SET name='$name', phone='$phone', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 				}
 				$stmt = $conn->prepare($sql);
 				$stmt->execute();
@@ -183,7 +183,7 @@
 			break;
 		case isset($_GET["delete"]): // Si la solicitud es delete.
 			$id = $_GET["id"];
-			$sql = "DELETE FROM contactos WHERE id=:id"; // Borra el usuario por la ID.
+			$sql = "DELETE FROM contacto WHERE id=:id"; // Borra el usuario por la ID.
 			$stmt = $conn->prepare($sql);
 			$stmt->bindValue(':id', $id);
 			$stmt->execute();
@@ -200,7 +200,7 @@
 					chdir("users"); // Cambio a la carpeta users.
 					rmdir($id); // Borro la carpeta del usuario que es su ID.
 				}
-                $sql = "SET @count = 0; UPDATE contactos SET id = @count:= @count + 1; ALTER TABLE contactos AUTO_INCREMENT = 1;"; // Arreglo los índices de las facturas.
+                $sql = "SET @count = 0; UPDATE contacto SET id = @count:= @count + 1; ALTER TABLE contacto AUTO_INCREMENT = 1;"; // Arreglo los índices de las facturas.
                 $stmt = $conn->prepare($sql);
                 $stmt->execute();
 				response(200, "Se Ha Borrado Correctamente El Usuario con ID: ", $id); // Envio la respuesta que se ha borrado el usuario.
@@ -215,7 +215,7 @@
 			$pass = $_GET["pass"]; // Asigno a la varible $pass la contraseña.
 			$ok = false; // Asgino falso a la variable $ok, la uso para saber si la contraseña del usuario es la correcta.
 
-			$sql = "SELECT * FROM contactos WHERE email='$email'"; // Preparo la consulta, solicito todos los datos del usuario con email $email.
+			$sql = "SELECT * FROM contacto WHERE email='$email'"; // Preparo la consulta, solicito todos los datos del usuario con email $email.
 			$stmt = $conn->prepare($sql);
 			$stmt->execute(); // Ejecuto la consulta.
 			$row = $stmt->fetch(PDO::FETCH_OBJ); // Asigno el resultado a la variable $row.
@@ -235,13 +235,13 @@
 			break;
 		case isset($_GET["forget"]): // Si la solicitud es forget, olvido de contraseña.
 			$email = $_GET["email"]; // Recibo el email.
-			$stmt = $conn->prepare("SELECT email FROM contactos WHERE email='$email'"); // Solicito el email que coincida con el enviado por el usuario.
+			$stmt = $conn->prepare("SELECT email FROM contacto WHERE email='$email'"); // Solicito el email que coincida con el enviado por el usuario.
 			$stmt->execute(); // Ejecuto la consulta.
 			$user = $stmt->fetch(PDO::FETCH_OBJ);
 			if ($user->email == $email) // Si está en la base de datos.
 			{
 				$hash = password_hash("1111", PASSWORD_DEFAULT); // Codifico la cadena 1111 en la variable $hash.
-				$sql = "UPDATE contactos SET pass='$hash' WHERE email='$email'"; // Hago un udate a la base de datos a la columna pass con el $hash a la dirección del email del usuario.
+				$sql = "UPDATE contacto SET pass='$hash' WHERE email='$email'"; // Hago un udate a la base de datos a la columna pass con el $hash a la dirección del email del usuario.
 
 				$stmt = $conn->prepare($sql);
 				$stmt->execute();

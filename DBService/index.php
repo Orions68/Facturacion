@@ -226,13 +226,6 @@ include "includes/nav.html";
                             }
                         }
                     }
-                    else // Si no se solicito leer datos pero recargué la página llegan datos para mostrar los siguientes resultados de la tabla.
-                    {
-                        if (isset($_REQUEST["show"])) // Verifico si llegan datos para mostrar.
-                        {
-                            show($_REQUEST["show"], $_REQUEST["rows"]); // Llamo a la función show pasándole la dirección que llega por GET en show y el número de filas a mostrar en row.
-                        }
-                    }
                     ?>
                 </div>
                 <div id="view3">
@@ -346,104 +339,5 @@ include "includes/nav.html";
     </div>
 </section>
 <?php
-// function show($way, $rows) // La Función show recibe dos parametros, la dirección $way y la cantidad de filas a mostrar $rows.
-// {
-//     define ("array_size", count($_SESSION["data"])); // Defino la Constante array_size con el tamaño del array $_SESSION["data"].
-//     echo "<table><tr><th>ID</th><th>Nombre</th><th>Teléfono</th><th>E-mail</th><th>Fecha de Nacimiento</th><th>Genero</th><th>Imagen de Perfil</th></tr>"; // Muestro el header de la tabla.
-//     if (!empty($_SESSION["already"])) // Verifico si la variable de sesión $_SESSION["already"] no está vacía.
-//     {
-//         if ($way == 1) // Verifico la dirección en la que hay que mostrar los datos, $way = 1 estoy mostrando los resultados siguientes.
-//         {
-//             $_SESSION["counter"] += $rows * 7; // Si son los datos siguientes, incremento la variable $_SESSION["counter"] en la cantidad de filas a mostrar * 7.
-//             if ($_SESSION["counter"] > array_size) // Si la variable counter es mayor que el tamaño del array.
-//             {
-//                 $_SESSION["counter"] -= $rows * 7; // La decremento en la cantidad de filas a mostrar * 7, es el valor máximo que puede tener. Esta comprobación se hace por si el usuario actualiza la página.
-//             }
-
-//             $_SESSION["rest"] -= $rows * 7; // Decremento la variable $_SESSION["rest"], que tiene el tamaño del array, en la cantidad de filas a mostrar * 7.
-//             if ($_SESSION["rest"] < 0) // Si rest es menor que 0
-//             {
-//                 $_SESSION["rest"] = $rows * 7; // Le asigno el valor de las filas a mostrar * 7, es el valor mínimo que tiene que tener rest. Esta comprobación se hace por si el usuario actualiza la página.
-//             }
-//             if ($_SESSION["rest"] < $rows * 7) // Si la variable $_SESSION["rest"] es menor que la cantidad de filas a mostrar.
-//             {
-//                 $_SESSION["complement"] = $_SESSION["rest"]; // Guardo en $_SESSION["complement"] el valor de $_SESSION["rest].
-//                 $_SESSION["rest"] = $rows * 7; // Pongo la variable $_SESSION["rest"] al número de filas a mostrar * 7, que es el valor mínimo que tiene que tener.
-//             }
-//         }
-//         else // Si estoy yendo a los resultados anteriores $way = -1.
-//         {
-//             $_SESSION["counter"] -= $rows * 7; // Decremento la variable $_SESSION["counter"] en la cantidad de filas a mostrar * 7.
-//             if ($_SESSION["counter"] < 0) // Si conter es menor que 0
-//             {
-//                 $_SESSION["counter"] = 0; // Counter es igual a 0, es el valor mínimo que puede tener. Esta comprobación se hace por si el usuario actualiza la página.
-//             }
-
-//             $_SESSION["rest"] += $rows * 7; // Incremento la variable $_SESSION["rest"] en la cantidad de filas a mostrar * 7.
-//             if ($_SESSION["rest"] > array_size) // Si rest es mayor que el tamaño del array.
-//             {
-//                 $_SESSION["rest"] -= $rows * 7; // Decremento rest en la cantidad de filas a mostrar * 7. Esta comprobación se hace por si el usuario actualiza la página.
-//             }
-//         }
-//     }
-//     if (array_size <= $rows * 7) // Si el tamaño del array  es menor o igual que la cantidad de filas a mostrar * 7.
-//     {
-//         for ($i = 0; $i < array_size; $i += 7) // Hago un bucle simple desde 0 hasta el tamaño del array, incrementando el indice de 7 en 7.
-//         {
-//             echo "<tr><td>" . $_SESSION["data"][$i] . "</td>"; // Muestro los datos del array $_SESSION["data"] del índice 0 al 6.
-//             echo "<td>" . $_SESSION["data"][$i + 1] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 2] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 3] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 4] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 5] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 6] . "</td></tr>";
-//         }
-//         echo "</table>"; // Cierro la tabla.
-//     }
-//     else // Si el tamaño del array es mayor al número de filas a mostrar.
-//     {
-//         if (empty($_SESSION["already"])) // Si la variable $_SESSION["already"] está vacía.
-//         {
-//             $_SESSION["already"] = true; // Le asigno true;
-//         }
-//         for ($i = $_SESSION["counter"]; $i < array_size - $_SESSION["rest"] + $rows * 7; $i += 7) // Hago el bucle desde la posisión en $_SESSION["counter"] hasta el tamaño del array 
-//         // menos el contenido de la variable $_SESSION["rest"] + el número de filas a mostrar $rows * 7.
-//         {
-//             echo "<tr><td>" . $_SESSION["data"][$i] . "</td>"; // Muestro los datos del array $_SESSION["data"] del índice 0 al 6.
-//             echo "<td>" . $_SESSION["data"][$i + 1] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 2] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 3] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 4] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 5] . "</td>";
-//             echo "<td>" . $_SESSION["data"][$i + 6] . "</td></tr>";
-//         }
-//         if ($_SESSION["counter"] == 0) // Verifico si $_SESSION["counter"] es 0, Estoy leyendo desde la primera posición.
-//         {
-//             echo "</table>"; // Cierro la tabla.
-//             echo "<button onclick='window.open(\"index.php?show=1&rows=" . $rows . "\", \"_self\")' class='btn btn-success'>Siguientes Resultados</button>"; // Agrego un botón para mostrar
-//             // los siguientes resultados.
-//         }
-//         else if ($_SESSION["counter"] >= array_size - $rows * 7) // Si counter no es 0, compruebo si $_SESSION["counter"] es mayor o igual que el tamaño del array descontando la cantidad de 
-//         // filas a mostrar, para saber si llegué al final de los datos.
-//         {
-//             echo "</tr></table>"; // Cierro la tabla.
-//             echo "<button onclick='window.open(\"index.php?show=-1&rows=" . $rows . "\", \"_self\")' style='margin-left: 50px;' class='btn btn-danger'>Anteriores Resultados</button>";
-//             // Agrego un botón para mostrar los resultados anteriores.
-//             $_SESSION["rest"] = $_SESSION["complement"]; // Recupero el valor de $_SESSION["rest"], le cargo el valor que es menor que $rows * 7.
-//         }
-//         else // Si aun $_SESSION["counter"] es menor que el tamaño del array menos la cantidad de filas a mostrar.
-//         {
-//             echo "</tr></table>"; // Cierro la tabla.
-//             echo "<button onclick='window.open(\"index.php?show=1&rows=" . $rows . "\", \"_self\")' class='btn btn-success'>Siguientes Resultados</button>";
-//             echo "<button onclick='window.open(\"index.php?show=-1&rows=" . $rows . "\", \"_self\")' style='margin-left: 50px;' class='btn btn-danger'>Anteriores Resultados</button>";
-//             // Agrego los dos botones, Siguientes Resultados y Anteriores Resultados.
-//         }
-//     }
-// }
-// if (isset($_REQUEST["show"])) // Verifico si llegan datos por GET de show.
-// {
-//     echo "<script>document.getElementById('view2').scrollIntoView(); // Navego hasta la vista view2 que es donde se muestran los resultados de la busqueda de todos los resultados de la base de datos.
-//     </script>";
-// }
 include "includes/footer.html";
 ?>
