@@ -41,7 +41,7 @@ function change(page, qtty, index) // Función que muestra los resultados de a 5
     if (!index) // Si se llama desde el perfil del cliente.
     {
         var html = "<table><tr><th>Número de Factura</th><th>Servicio</th><th>Precio</th><th>Cantidad</th><th>Parcial I.V.A. Incluido</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
-        for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
+        for (i = (page - 1) * qtty; i < page * qtty; i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
         {
             if (i < length) // Si i es menor que el tamaño del array.
             {
@@ -52,7 +52,7 @@ function change(page, qtty, index) // Función que muestra los resultados de a 5
                 {
                     html += service[i][k] + "<br>";
                 }
-                html += "</td><td style='text-align: right; width: 100px;'>";
+                html += "</td><td style='text-align: right; width: 120px;'>";
                 for (k = 0; k < size; k++)
                 {
                     html += price[i][k] + "<br>";
@@ -65,7 +65,7 @@ function change(page, qtty, index) // Función que muestra los resultados de a 5
                 html += "</td><td style='text-align: right; width: 150px;'>";
                 for (k = 0; k < size; k++)
                 {
-                    html += (parseFloat(price[i][k]) * parseFloat(qtties[i][k])).toFixed(2) + " $<br>";
+                    html += (parseFloat(price[i][k]) * parseInt(qtties[i][k])).toFixed(2) + " $<br><br>";
                 }
                 html += "</td><td>";
                 html += total[i] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>"; // Cierro la tabla.
@@ -77,7 +77,7 @@ function change(page, qtty, index) // Función que muestra los resultados de a 5
     else // Si se llama desde index.
     {
         var html = "<table><tr><th>Servicio</th><th>Precio</th><th>Foto</th></tr>";
-        for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
+        for (i = (page - 1) * qtty; i < page * qtty; i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
         {
             if (i < length) // Si i es menor que el tamaño del array.
             {
