@@ -128,9 +128,9 @@ include "includes/nav.html";
                         <br><br>
                         <label><input type="radio" name="gender" value="1"> Varón</label>
                         <br><br>
-                        <label><input type="file" name="profile"> Foto de Perfil<small>(opcional)</small></label>
+                        <label><input type="file" name="profile" class="btn btn-primary btn-lg"> Foto de Perfil<small>(opcional)</small></label>
                         <br><br>
-                        <input type="submit" name="create" value="Inserta Usuario">
+                        <input type="submit" name="create" value="Inserta Usuario" class="btn btn-info btn-lg">
                     </form>
                     <br><br>
                     <?php
@@ -147,7 +147,8 @@ include "includes/nav.html";
                     <form action="" method="post">
                         <label><input type="number" name="id"> ID del Registro a Consultar.</label>
                         <br><br>
-                        <input type="submit" name="read" value="Consulta">
+                        <input type="submit" name="read" value="Consulta" class="btn btn-success btn-lg">
+                        <br><br>
                     </form>
                     <?php
                     if (isset($_POST["read"])) // Si se solicitó la lectura de los datos de una ID o de todos los resultados.
@@ -211,7 +212,7 @@ include "includes/nav.html";
                                     echo "<script>img[" . $i . "] = '" . $data["data"][$i]["path"] . "';</script>";
                                 }
                                 ?>
-                                <div id="TableList"></div>
+                                <div id="table"></div>
                                 <br>
                                 <span id="page"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button onclick="javascript:prev()" id="prev" class="btn btn-danger btn-lg">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -244,7 +245,7 @@ include "includes/nav.html";
                             <br><br>
                             <label><input type="password" name="pass" required> Contraseña</label>
                             <br><br>
-                            <input type="submit" name="login" value="Login">
+                            <input type="submit" name="login" value="Login"  class="btn btn-secondary btn-lg">
                             </form>
                             <small><a href="forget.php">Olvidé mi Contraseña</a></small>
                             <br><br>
@@ -265,7 +266,7 @@ include "includes/nav.html";
                                     $path = $data["data"][7];
                                     echo "<h3 class='blue'>" . $data["message"] . $name . "</h3>"; // Muestro los resultados con la foto del usuario.
                                     echo "<img src='" . $data['data'][7] . "' alt='Imagen de Perfil' width='320' height='240'><br><br>";
-                                    echo "<button onclick='showIt()'>Modifica Mis Datos</button>"; // Muestro el botón para mostrar el formulario con los datos del usuario a modificar.
+                                    echo "<button onclick='showIt()' class='btn btn-warning btn-lg'>Modifica Mis Datos</button>"; // Muestro el botón para mostrar el formulario con los datos del usuario a modificar.
                                 }
                                 else
                                 {
@@ -307,10 +308,10 @@ include "includes/nav.html";
                                     <label><input type="radio" name="gender" value="1" checked> Varón</label>
                                     <br><br>';
                                 }
-                                echo '<label><input type="file" name="profile"> Foto de Perfil<small>(opcional)</small></label>
+                                echo '<label><input type="file" name="profile" class="btn btn-primary btn-lg"> Foto de Perfil<small>(opcional)</small></label>
                                 <input type="hidden" name="path" value="' . $path . '">
                                 <br><br>
-                                <input type="submit" name="update" value="Modifica Usuario">
+                                <input type="submit" name="update" value="Modifica Usuario" class="btn btn-info btn-lg">
                             </form>';
                             ?>
                         </div>
