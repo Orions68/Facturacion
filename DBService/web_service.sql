@@ -26,10 +26,10 @@ USE `web_service`;
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contactos`
+-- Estructura de tabla para la tabla `contacto`
 --
 
-CREATE TABLE `contactos` (
+CREATE TABLE `contacto` (
   `id` int(11) NOT NULL,
   `name` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -41,10 +41,10 @@ CREATE TABLE `contactos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `contactos`
+-- Volcado de datos para la tabla `contacto`
 --
 
-INSERT INTO `contactos` (`id`, `name`, `phone`, `email`, `pass`, `bday`, `gender`, `path`) VALUES
+INSERT INTO `contacto` (`id`, `name`, `phone`, `email`, `pass`, `bday`, `gender`, `path`) VALUES
 (1, 'Juan Perez', '651234567', 'juan@mail.com', '$2y$10$y33WPOB68oPJ1.znfJOcaegje9xiPWULJvfNXjd52oes0uu0kzgDe', '0000-00-00', 0, 'img/female.jpg'),
 (2, 'Pedro Gomez', '5512345698', 'pedro@mail.com', '', '0000-00-00', 0, 'img/female.jpg'),
 (3, 'Ezequiel Ramirez', '5512345687', 'ezequiel@mail.com', '', '0000-00-00', 0, 'img/female.jpg'),
@@ -63,9 +63,9 @@ INSERT INTO `contactos` (`id`, `name`, `phone`, `email`, `pass`, `bday`, `gender
 --
 
 --
--- Indices de la tabla `contactos`
+-- Indices de la tabla `contacto`
 --
-ALTER TABLE `contactos`
+ALTER TABLE `contacto`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `telefono` (`phone`,`email`);
 
@@ -74,9 +74,9 @@ ALTER TABLE `contactos`
 --
 
 --
--- AUTO_INCREMENT de la tabla `contactos`
+-- AUTO_INCREMENT de la tabla `contacto`
 --
-ALTER TABLE `contactos`
+ALTER TABLE `contacto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
