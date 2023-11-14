@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\bin\Debug\net7.0\Nueva Cadena Invertida.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\bin\Debug\net7.0\Nueva Cadena Invertida.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\bin\Debug\net7.0\Nueva Cadena Invertida.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\bin\Debug\net7.0\Nueva Cadena Invertida.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\bin\Debug\net7.0\Nueva Cadena Invertida.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\refint\Nueva Cadena Invertida.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\Nueva Cadena Invertida.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Nueva Cadena Invertida\obj\Debug\net7.0\ref\Nueva Cadena Invertida.dll

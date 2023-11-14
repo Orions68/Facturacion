@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\bin\Debug\net7.0\Partiendo Cadenas.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\bin\Debug\net7.0\Partiendo Cadenas.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\bin\Debug\net7.0\Partiendo Cadenas.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\bin\Debug\net7.0\Partiendo Cadenas.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\bin\Debug\net7.0\Partiendo Cadenas.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\refint\Partiendo Cadenas.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\Partiendo Cadenas.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Partiendo Cadenas\obj\Debug\net7.0\ref\Partiendo Cadenas.dll

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Nueva Cadena Invertida/1.0.0": {
+        "runtime": {
+          "Nueva Cadena Invertida.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Nueva Cadena Invertida/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

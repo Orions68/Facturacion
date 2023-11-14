@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\bin\Debug\net7.0\Cadena Dentro de Cadena.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\bin\Debug\net7.0\Cadena Dentro de Cadena.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\bin\Debug\net7.0\Cadena Dentro de Cadena.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\bin\Debug\net7.0\Cadena Dentro de Cadena.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\bin\Debug\net7.0\Cadena Dentro de Cadena.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\refint\Cadena Dentro de Cadena.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\Cadena Dentro de Cadena.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena Dentro de Cadena\obj\Debug\net7.0\ref\Cadena Dentro de Cadena.dll

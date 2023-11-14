@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\bin\Debug\net7.0\Datos Personales.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\bin\Debug\net7.0\Datos Personales.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\bin\Debug\net7.0\Datos Personales.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\bin\Debug\net7.0\Datos Personales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\bin\Debug\net7.0\Datos Personales.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\refint\Datos Personales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\Datos Personales.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Datos Personales\obj\Debug\net7.0\ref\Datos Personales.dll

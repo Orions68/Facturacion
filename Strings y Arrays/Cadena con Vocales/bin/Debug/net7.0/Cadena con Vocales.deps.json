@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Cadena con Vocales/1.0.0": {
+        "runtime": {
+          "Cadena con Vocales.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cadena con Vocales/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

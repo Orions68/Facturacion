@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\bin\Debug\net7.0\Palabra Clave.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\bin\Debug\net7.0\Palabra Clave.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\bin\Debug\net7.0\Palabra Clave.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\bin\Debug\net7.0\Palabra Clave.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\bin\Debug\net7.0\Palabra Clave.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\refint\Palabra Clave.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\Palabra Clave.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Palabra Clave\obj\Debug\net7.0\ref\Palabra Clave.dll

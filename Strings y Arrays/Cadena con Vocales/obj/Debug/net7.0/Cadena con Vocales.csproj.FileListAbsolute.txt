@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\bin\Debug\net7.0\Cadena con Vocales.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\bin\Debug\net7.0\Cadena con Vocales.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\bin\Debug\net7.0\Cadena con Vocales.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\bin\Debug\net7.0\Cadena con Vocales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\bin\Debug\net7.0\Cadena con Vocales.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\refint\Cadena con Vocales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\Cadena con Vocales.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\obj\Debug\net7.0\ref\Cadena con Vocales.dll

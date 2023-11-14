@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\bin\Debug\net7.0\Elimina Palabra.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\bin\Debug\net7.0\Elimina Palabra.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\bin\Debug\net7.0\Elimina Palabra.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\bin\Debug\net7.0\Elimina Palabra.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\bin\Debug\net7.0\Elimina Palabra.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\refint\Elimina Palabra.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\Elimina Palabra.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Elimina Palabra\obj\Debug\net7.0\ref\Elimina Palabra.dll

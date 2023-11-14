@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\bin\Debug\net7.0\Cuantas Vocales.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\bin\Debug\net7.0\Cuantas Vocales.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\bin\Debug\net7.0\Cuantas Vocales.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\bin\Debug\net7.0\Cuantas Vocales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\bin\Debug\net7.0\Cuantas Vocales.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\refint\Cuantas Vocales.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\Cuantas Vocales.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cuantas Vocales\obj\Debug\net7.0\ref\Cuantas Vocales.dll

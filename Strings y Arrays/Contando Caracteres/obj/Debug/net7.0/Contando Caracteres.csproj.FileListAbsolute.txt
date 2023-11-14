@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\bin\Debug\net7.0\Contando Caracteres.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\bin\Debug\net7.0\Contando Caracteres.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\bin\Debug\net7.0\Contando Caracteres.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\bin\Debug\net7.0\Contando Caracteres.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\bin\Debug\net7.0\Contando Caracteres.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\refint\Contando Caracteres.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\Contando Caracteres.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Contando Caracteres\obj\Debug\net7.0\ref\Contando Caracteres.dll

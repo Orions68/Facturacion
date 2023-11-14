@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\bin\Debug\net7.0\Letra en Palabra.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\bin\Debug\net7.0\Letra en Palabra.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\bin\Debug\net7.0\Letra en Palabra.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\bin\Debug\net7.0\Letra en Palabra.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\bin\Debug\net7.0\Letra en Palabra.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\refint\Letra en Palabra.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\Letra en Palabra.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Letra en Palabra\obj\Debug\net7.0\ref\Letra en Palabra.dll

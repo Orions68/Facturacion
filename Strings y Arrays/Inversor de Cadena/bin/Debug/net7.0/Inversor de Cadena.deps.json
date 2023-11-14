@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Inversor de Cadena/1.0.0": {
+        "runtime": {
+          "Inversor de Cadena.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Inversor de Cadena/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

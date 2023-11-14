@@ -1,0 +1,14 @@
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\bin\Debug\net7.0\Inversor de Cadena.exe
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\bin\Debug\net7.0\Inversor de Cadena.deps.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\bin\Debug\net7.0\Inversor de Cadena.runtimeconfig.json
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\bin\Debug\net7.0\Inversor de Cadena.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\bin\Debug\net7.0\Inversor de Cadena.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.AssemblyInfoInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.AssemblyInfo.cs
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.csproj.CoreCompileInputs.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\refint\Inversor de Cadena.dll
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.pdb
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\Inversor de Cadena.genruntimeconfig.cache
+C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Inversor de Cadena\obj\Debug\net7.0\ref\Inversor de Cadena.dll
