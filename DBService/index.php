@@ -12,6 +12,7 @@ switch (true) // Hago un switch a la solicitud que sea true.
     case isset($_POST["create"]): // Si llego $_POST["create"].
         $name = urlencode($_POST["username"]); // Codifico el nombre de usuario ya que puede tener espacios, uso urlencode ya que htmlspecialchars no soluciona el problema
         // de pasar una cadena con espacios por la url.
+        $surname = urlencode($_POST["surname"]);
         $phone = urlencode($_POST["phone"]);
         $email = urlencode($_POST["email"]);
         $pass = urlencode($_POST["pass"]);
@@ -32,7 +33,7 @@ switch (true) // Hago un switch a la solicitud que sea true.
             $img = urlencode($img_name); // Codifico el nombre de la imagen ya que puede tener espacios.
         }
 
-        $url = "http://localhost/DBService/service.php?create=1&name=$name&phone=$phone&email=$email&pass=$pass&bday=$bday&gender=$gender&img=$img";
+        $url = "http://localhost/DBService/service.php?create=1&name=$name&surname=$surname&phone=$phone&email=$email&pass=$pass&bday=$bday&gender=$gender&img=$img";
         // Asigno a la variable $url la ruta del servicio pasandole todos los datos por get.
         $data = json_decode(file_get_contents("$url"), true); // Asigno la llamada a la variable $data, decodificando la respuesta que es un JSON.
         break; // Salgo del Switch.
@@ -54,6 +55,7 @@ switch (true) // Hago un switch a la solicitud que sea true.
     case isset($_POST["update"]): // Si llego ua solicitud $_POST["update"].
         $id = $_POST["id"];
         $name = urlencode($_POST["username"]);
+        $surname = urlencode($_POST["surname"]);
         $phone = urlencode($_POST["phone"]);
         $email = urlencode($_POST["email"]);
         $pass = urlencode($_POST["pass"]);
@@ -75,7 +77,7 @@ switch (true) // Hago un switch a la solicitud que sea true.
             $path = urlencode($path);
         }
 
-        $url = "http://localhost/DBService/service.php?update=1&id=$id&name=$name&phone=$phone&email=$email&pass=$pass&bday=$bday&gender=$gender&path=$path";
+        $url = "http://localhost/DBService/service.php?update=1&id=$id&name=$name&surname=$surname&phone=$phone&email=$email&pass=$pass&bday=$bday&gender=$gender&path=$path";
 
         $data = json_decode(file_get_contents("$url"), true);
         break;
@@ -113,6 +115,8 @@ include "includes/nav.html";
                     <h2>Primer Servicio CREATE - Inserta un Usuario en la Base de Datos</h2>
                     <form action="" method="post" enctype="multipart/form-data" onsubmit="return verify(1)">
                         <label><input type="text" name="username" required> Nombre del Usuario.</label>
+                        <br><br>
+                        <label><input type="text" name="surname" required> Apellidos del Usuario.</label>
                         <br><br>
                         <label><input type="number" name="phone" required> Teléfono del Usuario.</label>
                         <br><br>
@@ -163,6 +167,7 @@ include "includes/nav.html";
                                 $html = "<table><tr>";
                                 $html .= "<th>Nombre</th><th>Teléfono</th><th>E-mail</th><th>Fecha de Nacimiento</th><th>Genero</th><th>Imagen de Perfil</th><tr>";
                                 $html .= "<td>" . $data["data"][0]["name"] . "</td>";
+                                $html .= "<td>" . $data["data"][0]["surname"] . "</td>";
                                 $html .= "<td>" . $data["data"][0]["phone"] . "</td>";
                                 $html .= "<td>" . $data["data"][0]["email"] . "</td>";
                                 $date = explode("-", $data["data"][0]["bday"]);
@@ -196,6 +201,7 @@ include "includes/nav.html";
                                 echo "<script>length = " . $length . ";</script>";
                                 echo "<script>var id = [];</script>";
                                 echo "<script>var username = [];</script>";
+                                echo "<script>var surname = [];</script>";
                                 echo "<script>var phone = [];</script>";
                                 echo "<script>var email = [];</script>";
                                 echo "<script>var bday = [];</script>";
@@ -205,6 +211,7 @@ include "includes/nav.html";
                                 {
                                     echo "<script>id[" . $i . "] = '" . $data["data"][$i]["id"] . "';</script>";
                                     echo "<script>username[" . $i . "] = '" . $data["data"][$i]["name"] . "';</script>";
+                                    echo "<script>surname[" . $i . "] = '" . $data["data"][$i]["surname"] . "';</script>";
                                     echo "<script>phone[" . $i . "] = '" . $data["data"][$i]["phone"] . "';</script>";
                                     echo "<script>email[" . $i . "] = '" . $data["data"][$i]["email"] . "';</script>";
                                     echo "<script>bday[" . $i . "] = '" . $data["data"][$i]["bday"] . "';</script>";
@@ -250,15 +257,16 @@ include "includes/nav.html";
                                 {
                                     $id = $data["data"][0];
                                     $name = $data["data"][1];
-                                    $phone = $data["data"][2];
-                                    $email = $data["data"][3];
-                                    $pass = $data["data"][4];
-                                    $bday = $data["data"][5];
+                                    $surname = $data["data"][2];
+                                    $phone = $data["data"][3];
+                                    $email = $data["data"][4];
+                                    $pass = $data["data"][5];
+                                    $bday = $data["data"][6];
                                     $date = date('Y-m-d', strtotime($bday));
-                                    $gender = $data["data"][6];
-                                    $path = $data["data"][7];
+                                    $gender = $data["data"][7];
+                                    $path = $data["data"][8];
                                     echo "<h3 class='blue'>" . $data["message"] . $name . "</h3>"; // Muestro los resultados con la foto del usuario.
-                                    echo "<img src='" . $data['data'][7] . "' alt='Imagen de Perfil' width='320' height='240'><br><br>";
+                                    echo "<img src='" . $data['data'][8] . "' alt='Imagen de Perfil' width='320' height='240'><br><br>";
                                     echo "<button onclick='showIt()' class='btn btn-warning btn-lg'>Modifica Mis Datos</button>"; // Muestro el botón para mostrar el formulario con los datos del usuario a modificar.
                                 }
                                 else
@@ -275,7 +283,9 @@ include "includes/nav.html";
                             echo '<form action="" method="post" enctype="multipart/form-data" onsubmit="return verify(2)">
                                 <label><input type="hidden" name="id" value="' . $id . '"> ID del Usuario = ' . $id . '</label>
                                 <br><br>
-                                <label><input type="text" name="username" id="name2" value="' . $name . '" required> Nombre del Usuario.</label>
+                                <label><input type="text" name="username" value="' . $name . '" required> Nombre del Usuario.</label>
+                                <br><br>
+                                <label><input type="text" name="surname" value="' . $surname . '" required> Apellidos del Usuario.</label>
                                 <br><br>
                                 <label><input type="number" name="phone" value="' . $phone . '" required> Teléfono del Usuario.</label>
                                 <br><br>

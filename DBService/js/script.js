@@ -117,12 +117,12 @@ function totNumPages()
         var btn_prev = document.getElementById("prev");
         var TableList = document.getElementById("table");
         var page_span = document.getElementById("page");
-        var html = "<table><tr><th>ID</th><th>Nombre</th><th>Teléfono</th><th>E-mail</th><th>Cumpleaños</th><th>Genero</th><th>Imágen de Perfil</th></tr><tr>";
+        var html = "<table><tr><th>ID</th><th>Nombre</th><th>Apellidos</th><th>Teléfono</th><th>E-mail</th><th>Cumpleaños</th><th>Genero</th><th>Imágen de Perfil</th></tr><tr>";
         for (i = (page - 1) * qtty; i < page * qtty; i++)
         {
             if (i < length)
             {
-                html += "<td>" + id[i] + "</td><td>" + username[i] + "</td><td>" + phone[i] + "</td><td>" + email[i] + "</td><td>" + bday[i] + "</td><td>" + genre[i] + "</td><td><a href='javascript:showImg(\"" + img[i] + "\")'><img src='" + img[i] + "' width='100' height='100' alt='Imágen de Perfil'></a></td></tr><tr>";
+                html += "<td>" + id[i] + "</td><td>" + username[i] + "</td><td>" + surname[i] + "</td><td>" + phone[i] + "</td><td>" + email[i] + "</td><td>" + bday[i] + "</td><td>" + genre[i] + "</td><td><a href='javascript:showImg(\"" + img[i] + "\")'><img src='" + img[i] + "' width='100' height='100' alt='Imágen de Perfil'></a></td></tr><tr>";
             }
         }
         html += "</tr></table>";

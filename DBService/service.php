@@ -9,6 +9,7 @@
 		case isset($_GET["create"]): // Si es create.
 			$already = false; // Uso la variable $already para verificar si hay datos repetidos.
 			$name = $_GET["name"]; // Recibo todos los datos que vienen por GET en Variables.
+            $surname = $_GET["surname"];
 			$phone = $_GET["phone"];
 			$email = $_GET["email"];
 			$pass = $_GET["pass"];
@@ -31,7 +32,7 @@
 
 			if (!$already) // Si $already es false
 			{
-				$sql = "INSERT INTO contacto (name, phone, email, pass, bday, gender, path) VALUES('$name', '$phone', '$email', '$hash', '$bday', '$gender', '$path')";
+				$sql = "INSERT INTO contacto (name, surname, phone, email, pass, bday, gender, path) VALUES('$name', '$surname', '$phone', '$email', '$hash', '$bday', '$gender', '$path')";
 				$stmt = $conn->prepare($sql);
 				$stmt->execute(); // Creo la consulta para insertar, la preparo y la ejecuto.
 				$id = $conn->lastInsertId(); // Recojo en la variable $id la id de la fila insertada.
@@ -113,6 +114,7 @@
 			$already = false; // Uso la variable $already para verificar si se repiten datos unicos como email o teléfono.
 			$id = $_GET["id"];
 			$name = $_GET["name"];
+            $surname = $_GET["surname"];
 			$phone = $_GET["phone"];
 			$email = $_GET["email"];
 			$pass = $_GET["pass"];
@@ -148,22 +150,22 @@
 				{
 					if ($phone == $old_phone) // Verifico si el teléfono es el mismo que ya estaba.
 					{
-						$sql = "UPDATE contacto SET name='$name', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+						$sql = "UPDATE contacto SET name='$name', surname='$surname', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 						// Preparo la consulta para modificar con la nueva contraseña pero sin email ni phone ya que el usuario no los cambió y como son claves únicas
 						// no se puede volver a insertarlos en la base de datos.
 					}
 					else // Si el teléfono es diferente, el usuario lo cambió y ya se verifico que no está repetido en la base de datos.
 					{
-						$sql = "UPDATE contacto SET name='$name', phone='$phone', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+						$sql = "UPDATE contacto SET name='$name', surname='$surname', phone='$phone', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 					}
 				}
 				else if ($phone == $old_phone) // Si el email es distinto pero el phone es el mismo.
 				{
-					$sql = "UPDATE contacto SET name='$name', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+					$sql = "UPDATE contacto SET name='$name', surname='$surname', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 				}
 				else // Si es distinto el email y el teléfono.
 				{
-					$sql = "UPDATE contacto SET name='$name', phone='$phone', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
+					$sql = "UPDATE contacto SET name='$name', surname='$surname', phone='$phone', email='$email', pass='$hash', bday='$bday', gender='$gender', path='$path' WHERE id=$id;";
 				}
 				$stmt = $conn->prepare($sql);
 				$stmt->execute();
@@ -218,14 +220,17 @@
 			$sql = "SELECT * FROM contacto WHERE email='$email'"; // Preparo la consulta, solicito todos los datos del usuario con email $email.
 			$stmt = $conn->prepare($sql);
 			$stmt->execute(); // Ejecuto la consulta.
-			$row = $stmt->fetch(PDO::FETCH_OBJ); // Asigno el resultado a la variable $row.
-			if (password_verify($pass, $row->pass)) // Verifico si la decodificación del contenido de la fila pass es igual al password introducido por el usurio $pass.
-			{
-				$ok = true; // Si coincide $ok es true.
-			}
+            if ($stmt->rowCount() > 0)
+            {
+                $row = $stmt->fetch(PDO::FETCH_OBJ); // Asigno el resultado a la variable $row.
+                if (password_verify($pass, $row->pass)) // Verifico si la decodificación del contenido de la fila pass es igual al password introducido por el usurio $pass.
+                {
+                    $ok = true; // Si coincide $ok es true.
+                }
+            }
 			if ($ok) // Si $ok está a true.
 			{
-				response(200, "Bienvenido Usuario: ", array($row->id, $row->name, $row->phone, $email, $pass, $row->bday, $row->gender, $row->path));
+				response(200, "Bienvenido Usuario: ", array($row->id, $row->name, $row->surname, $row->phone, $email, $pass, $row->bday, $row->gender, $row->path));
 				// devuelvo un array con la ID el nombre, el email, la contraseña, la fecha, el genero y la ruta de la imagen.
 			}
 			else // Si $ok está a false.
