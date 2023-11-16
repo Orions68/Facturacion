@@ -564,45 +564,45 @@ function change(page, qtty, where) // Función que muestra los resultados de a 2
     var btn_prev = document.getElementById("prev"); // Asigno a la variable btn_prev la id del botón con id prev, que muestra los resultados anteriores.
     var page_span = document.getElementById("page"); // Asigno a la variable page_span la id del span page, que muestra el número de página.
     var table = document.getElementById("table"); // ID del div que contendrá las imágenes de los artículos y los formularios.
-    if (length < 3) // Si la cantidad de artículos es menor que 4.
-    {
-        if (where == "profile") // Si se llama desde el perfil del cliente.
-        {
-            var html = "<table><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Parcial</th><th>I.V.A.</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>"; // Muestro una tabla con las facturas del cliente.
-            var result = ""; // Declaro la variable result y le asigno el valor de texto vacio.
-            for (i = 0; i < qtty; i++) // Hago un bucle hasta la cantidad de resultados a mostrar.
-            {
-                if (i < length) // Mientras i sea menor que el tamaño del array, muestro los resultados en pantalla.
-                {
-                    result += tableProfile(i); // Llamo a la función tableProfile(i) y concateno el resultado en result.
-                }
-                else // Cuando i es igual a la cantidad de datos a mostrar.
-                {
-                    break; // Rompo el bucle.
-                }
-            }
-            html += result + "</table>"; // Concateno result a html, Cierro la tabla.
-            table.innerHTML = html; // La muestro en pantalla.
-        }
-        else // Si se llama desde search.
-        {
-            let container = document.getElementById("container");
-            var html = ""; // Declaro y asigno texto vacio a la variable html.
-            var result = ""; // Declaro y asigno texto vacio a la variable result.
-            html += "<div class='row'>"; // Pongo en pantalla un elemento div de la clase row de Bootstrap.
-            for (i = 0; i < length; i++) // Hago un bucle al tamaño de los array de productos.
-            {
-                if (qtties[i] > 0) // Si hay stock.
-                {
-                    result += htmlSearch(i); // Concateno el resultado de la función htmlSearch(i) a la variable result.
-                }
-            }
-            html += result + "</div>"; // Concateno a html el valor de result, Cierro el div de fila.
-            container.innerHTML = html; // Lo muestro en pantalla.
-        }
-    }
-    else // Si hay más de 3 resultados.
-    {
+    // if (length < 3) // Si la cantidad de artículos es menor que 4.
+    // {
+    //     if (where == "profile") // Si se llama desde el perfil del cliente.
+    //     {
+    //         var html = "<table><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Parcial</th><th>I.V.A.</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>"; // Muestro una tabla con las facturas del cliente.
+    //         var result = ""; // Declaro la variable result y le asigno el valor de texto vacio.
+    //         for (i = 0; i < qtty; i++) // Hago un bucle hasta la cantidad de resultados a mostrar.
+    //         {
+    //             if (i < length) // Mientras i sea menor que el tamaño del array, muestro los resultados en pantalla.
+    //             {
+    //                 result += tableProfile(i); // Llamo a la función tableProfile(i) y concateno el resultado en result.
+    //             }
+    //             else // Cuando i es igual a la cantidad de datos a mostrar.
+    //             {
+    //                 break; // Rompo el bucle.
+    //             }
+    //         }
+    //         html += result + "</table>"; // Concateno result a html, Cierro la tabla.
+    //         table.innerHTML = html; // La muestro en pantalla.
+    //     }
+    //     else // Si se llama desde search.
+    //     {
+    //         let container = document.getElementById("container");
+    //         var html = ""; // Declaro y asigno texto vacio a la variable html.
+    //         var result = ""; // Declaro y asigno texto vacio a la variable result.
+    //         html += "<div class='row'>"; // Pongo en pantalla un elemento div de la clase row de Bootstrap.
+    //         for (i = 0; i < length; i++) // Hago un bucle al tamaño de los array de productos.
+    //         {
+    //             if (qtties[i] > 0) // Si hay stock.
+    //             {
+    //                 result += htmlSearch(i); // Concateno el resultado de la función htmlSearch(i) a la variable result.
+    //             }
+    //         }
+    //         html += result + "</div>"; // Concateno a html el valor de result, Cierro el div de fila.
+    //         container.innerHTML = html; // Lo muestro en pantalla.
+    //     }
+    // }
+    // else // Si hay más de 3 resultados.
+    // {
         if (where == "profile") // Si se llama desde el perfil del cliente.
         {
             var html = "<table><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Parcial</th><th>I.V.A.</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
@@ -671,7 +671,7 @@ function change(page, qtty, where) // Función que muestra los resultados de a 2
             html += result + "</div>"; // Concateno a html el contenido de result, Cierro el div de la segunda fila de Bootstrap.
             container.innerHTML = html;
         }
-    }
+    // }
 
     if (length > 6) // Si la cantidad de Artículos es mayor que 6.
     {
