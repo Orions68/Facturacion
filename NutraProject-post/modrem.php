@@ -94,7 +94,7 @@ if (isset($_POST["id"]))
 
                     function kind($conn, $id)
                     {
-                        $sql = "SELECT kind FROM kind WHERE id=$id";
+                        $sql = "SELECT kind FROM kind WHERE product_id=$id";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         $row = $stmt->fetch(PDO::FETCH_OBJ);
@@ -103,7 +103,7 @@ if (isset($_POST["id"]))
 
                     function brand($conn, $id)
                     {
-                        $sql = "SELECT brand FROM brand WHERE id=$id";
+                        $sql = "SELECT brand FROM brand WHERE product_id=$id";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         $row = $stmt->fetch(PDO::FETCH_OBJ);

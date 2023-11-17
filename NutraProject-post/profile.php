@@ -207,9 +207,9 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                     <div id="table"></div>
                                     <br>
                                     <span id="page"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <button onclick="prev('profile')" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <button onclick="next('profile')" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
-                                    <script>change(1, 5, 'profile');</script>
+                                    <button onclick="prev(true)" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button onclick="next(true)" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
+                                    <script>change(1, 5, true);</script>
                                     <?php
                                     // Se muestran las facturas del cliente.
                                 }

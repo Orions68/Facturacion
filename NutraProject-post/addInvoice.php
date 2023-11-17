@@ -58,19 +58,15 @@ else
     $client_id = null;
 }
 $total = $_POST["total"];
-$base = $total * 100 / 121;
-$iva = $base * .21;
-$products = "";
-$qtty1 = "";
+
+$stmt = $conn->prepare('INSERT INTO invoice VALUES(:id, :client_id, :total, :date, :way)');
+$stmt->execute(array(':id' => null, ':client_id' => $client_id, ':total' => $total, ':date' => $date, ':way' => $way));
+$invoice_id = $conn->lastInsertId();
 for ($i = 0; $i < count($id); $i++)
 {
-    $products .= $id[$i] . ",";
-    $qtty1 .= $qtty[$i] . ",";
-    $partial .= $price[$i] * $qtty[$i] . ",";
+    $stmt = $conn->prepare('INSERT INTO sold VALUES(:invoice_id, :product_id, :qtty)');
+    $stmt->execute(array(':invoice_id' => $invoice_id, ':product_id' => $products[$i], ':qtty' => $qtty[$i]));
 }
-$stmt = $conn->prepare('INSERT INTO invoice VALUES(:id, :client_id, :product_id, :qtty, :partial, :iva, :total, :date, :time, :way)');
-$stmt->execute(array(':id' => null, ':client_id' => $client_id, ':product_id' => $products, ':qtty' => $qtty1, ':partial' => $partial, ':iva' => $iva, ':total' => $total, ':date' => $date, ':time' => $time, ':way' => $way));
-// Estas líneas agregan la factura a la base de datos.
 ?>
 <img alt="logo" src="img/logo.webp" height="300" width="100%">
 <br>
@@ -82,7 +78,7 @@ $stmt->execute(array(':id' => null, ':client_id' => $client_id, ':product_id' =>
             <div class="col-md-10">
                 <div id="view1">
                     <br><br><br><br>
-                    <script>toast(0, 'Factura de Monto: <?php echo number_format((float)$total, 2, ",", ".");?>', 'Almacenada Correctamente en la base de datos.');</script>
+                    <script>toast(0, 'Factura de Monto: <?php echo number_format((float)$total, 2, ",", ".");?>', 'Almacenada en la Base de Datos.');</script>
 					<br><br>
 				</div>
             </div>

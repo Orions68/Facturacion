@@ -85,9 +85,9 @@ function fromSearch($conn, $which, $selected) // Esta función se llama desde el
         <div id="container"></div>
         <br>
         <span id="page"></span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button onclick="prev('search')" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button onclick="next('search')" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
-        <script>change(1, 6, 'search');</script> <!-- Llama a la función de javascript que muestra los resultados de los artículos en pantalla, se le pasa el número de página, la cantidad de artículos a mostrar por página y de donde se llama a la función. -->
+        <button onclick="prev(false)" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button onclick="next(false)" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
+        <script>change(1, 6, false);</script> <!-- Llama a la función de javascript que muestra los resultados de los artículos en pantalla, se le pasa el número de página, la cantidad de artículos a mostrar por página y de donde se llama a la función. -->
         <?php
     }
     else // Si no hubo resultados.
@@ -152,14 +152,14 @@ function lookproducts($conn, $which, $selected) // Esta función hace la consult
     }
 }
 
-function show($i) // Muestra los Artículo que están en la base de datos.
+function show($i) // Muestra los Artículos que están en la base de datos.
 {
     global $id, $path, $product, $qtty;
     echo "<div class='col-md-4'>
     <a href='info.php?id=" . $id[$i] . "'><img id='img" . $i . "' src='" . $path[$i] . "' alt='" . $product[$i] . "' class='mysize' onmouseover='changeSize(this.id, true)' onmouseout='changeSize(this.id, false)'>
     <br>"; // Pongo en pantalla un div con la clase col de Bootstrap(4 columnas), y un enlace a la página info.php pasándole por GET el tipo de producto de que se trata, con la imagen del producto.
     echo "<small class='btn btn-info' role='button'>Ver Características del producto</small></a>"; // Pongo en pantalla un elemento small con una leyenda y cierro el enlace.
-    leftUnits($qtty[$i]); // Llamo a la función leftUnits() pasándole la cantidad de entradas que quedan y verifico si en algún producto quedan menos de 10 unidades.
+    leftUnits($qtty[$i]); // Llamo a la función leftUnits() pasándole la cantidad de artículos que quedan y verifico si en algún producto quedan menos de 10 unidades.
     echo "</div>"; // Si hay stock se muestra el producto en pantalla, si $left[$i] fuera menor o igual a 0 no se muestra el producto, cierro el div.
 }
 
