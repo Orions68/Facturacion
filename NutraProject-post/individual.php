@@ -39,10 +39,8 @@ if (isset($_POST["date"]))
                     <th>Producto</th>
                     <th>Precio</th>
                     <th>Cantidad</th>
-                    <th>Hora</th>
                     <th>Día</th>
                     <th>Base Imponible</th>
-                    <th>I.V.A.</th>
                     <th>Total + I.V.A.</th>
                     <th>Forma de Pago</th>
                     <th style="color: red;">BORRAR</th>
@@ -65,9 +63,22 @@ if (isset($_POST["date"]))
             $name = "Consumidor Final";
         }
         $way = $row["way"];
-        $productArray = explode(",", $row["product_id"]);
-        $qttyArray = explode(",", $row["qtty"]);
-        for ($i = 0; $i < count($productArray) - 1; $i++)
+
+        $sql = 'SELECT * FROM sold WHERE invoice_id=$row["id"];';
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0)
+        {
+            $index = 0;
+            while ($stmt->fetch(PDO::FETCH_OBJ))
+            {
+                $productArray[$index] = $row->product_id;
+                $qttyArray[$index] = $row->qtty;
+                $index++;
+            }
+        }
+
+        for ($i = 0; $i < count($productArray); $i++)
         {
             $product_price = getProduct($conn, $productArray[$i]);
             $preproduct = explode(",", $product_price);
@@ -91,10 +102,8 @@ if (isset($_POST["date"]))
         <td>' . $product . '</td>
         <td>' . $price . '</td>
         <td>' . $qtty . '</td>
-        <td>' . $row["time"] . '</td>
         <td>' . $row["date"] . '</td>
         <td>' . number_format((float)$row["total"] * 100 / 121, 2, ',', '.') . ' €</td>
-        <td>' . number_format((float)$row["iva"], 2, ',', '.') . ' €</td>
         <td>' . number_format((float)$row["total"], 2, ',', '.') . ' €</td>
         <td>' . $way . '</td>
         <td><form action="delete.php" method="post">

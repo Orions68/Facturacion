@@ -15,8 +15,20 @@ $id = $row->id;
 $client = $row->client_id;
 $client = getClient($conn, $row->client_id);
 
-$product = $row->product_id;
-$productArray = explode(",", $product);
+$sql = "SELECT * FROM sold WHERE invoice_id=$id;";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+if ($stmt->rowCount() > 0)
+{
+    $index = 0;
+    while ($row_product = $stmt->fetch(PDO::FETCH_OBJ))
+    {
+        $productArray[$index] = $row_product->product_id;
+        $qttyArray[$index] = $row_product->qtty;
+        $index++;
+    }
+}
+
 $product = "";
 $price = "";
 $realprice = [];
@@ -26,9 +38,9 @@ for ($i = 0; $i < count($productArray) - 1; $i++)
     $product .= getProduct($conn, $productArray[$i], $counter);
     $counter++;
 }
-$qtty = $row->qtty;
-$qttyArray = explode(",", $qtty);
-$qtty = "";
+
+
+
 $realqtty = [];
 for ($i = 0; $i < count($qttyArray) - 1; $i++)
 {
@@ -36,10 +48,8 @@ for ($i = 0; $i < count($qttyArray) - 1; $i++)
     $realqtty[$i] = $qttyArray[$i];
 }
 $total = $row->total;
-$iva = $row->iva;
-$base = $total - $iva;
+$base = $total;
 $date = $row->date;
-$time = $row->time;
 $partial = "";
 
 function getClient($conn, $id)
