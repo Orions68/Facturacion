@@ -21,7 +21,7 @@ include "includes/function.php";
                     <br><br>";
                 $stmt_date = $conn->prepare("SET lc_time_names = 'es_ES'");
                 $stmt_date->execute();
-                $stmt = $conn->prepare("SELECT *, DATE_FORMAT(date,'%d %M %Y') as date FROM invoice WHERE date='$date' ORDER BY date DESC, time DESC");
+                $stmt = $conn->prepare("SELECT *, DATE_FORMAT(date,'%d %M %Y') as date FROM invoice WHERE date='$date' ORDER BY date DESC");
                 $stmt->execute();
                 if ($stmt->rowCount() > 0)
                 {

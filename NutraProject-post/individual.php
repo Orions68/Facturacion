@@ -70,7 +70,7 @@ if (isset($_POST["date"]))
         if ($stmt->rowCount() > 0)
         {
             $index = 0;
-            while ($stmt->fetch(PDO::FETCH_OBJ))
+            while ($row_product = $stmt->fetch(PDO::FETCH_OBJ))
             {
                 $productArray[$index] = $row->product_id;
                 $qttyArray[$index] = $row->qtty;
