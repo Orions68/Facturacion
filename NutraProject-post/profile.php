@@ -14,8 +14,8 @@ function getIt($conn, $i, $k, $productArray) // Función getIt(), recibe los par
     {
         while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
         {
-            array_push($product[$i], $row->product . "<br>"); // Hago un push del contenido del campo service, el nombre del servicio, en el array $service en el índice que corresponda, $i.
-            array_push($price[$i], $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del servicio, en el array $price. en el índice que corresponda, $i.
+            array_push($product[$i], $row->product . "<br>"); // Hago un push del contenido del campo product, el nombre del producto, en el array $product en el índice que corresponda, $i.
+            array_push($price[$i], $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del producto, en el array $price. en el índice que corresponda, $i.
         }
     }
 }
@@ -133,7 +133,7 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                 $product = [];
                                 $price = [];
                                 $i = 0;
-                                $firstsql = "SELECT product_id FROM invoice WHERE client_id=$id";
+                                $firstsql = "SELECT product_id FROM sold JOIN invoice ON invoice.id=sold.invoice_id WHERE invoice.client_id=$id;";
                                 $stmt = $conn->prepare($firstsql);
                                 $stmt->execute();
                                 if ($stmt->rowCount() > 0) // Si hay resultados declaro las variables.
@@ -155,7 +155,7 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                     }
                                     $ok = false;
                                     $k = 0;
-                                    $sql = "SELECT * FROM client INNER JOIN invoice ON client.id=invoice.client_id WHERE client.id=$id;";
+                                    $sql = "SELECT * FROM client JOIN invoice ON client.id=invoice.client_id JOIN sold ON sold.invoice_id=invoice.id WHERE client.id=$id;";
                                     $stmt = $conn->prepare($sql);
                                     $stmt->execute(); // Hago una consulta a la base de datos de los datos del cliente y sus facturas.
                                     if ($stmt->rowCount() > 0) // Si hay resultados declaro las variables.
@@ -168,7 +168,6 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                             $qtty[$k] = $row->qtty;
                                             $total[$k] = $row->total;
                                             $date[$k] = $row->date;
-                                            $time[$k] = $row->time;
                                             $k++;
                                         }
                                     }
@@ -194,7 +193,6 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                         echo "<script>qtties[" . $i . "] = '" . $qtty[$i] . "';</script>";
                                         echo "<script>total[" . $i . "] = '" . $total[$i] . "';</script>";
                                         echo "<script>date[" . $i . "] = '" . $date[$i] . "';</script>";
-                                        echo "<script>time[" . $i . "] = '" . $time[$i] . "';</script>";
                                         echo "<script>product[" . $i . "] = '';</script>";
                                         echo "<script>price[" . $i . "] = '';</script>";
                                         for ($j = 0; $j < count($product[$i]); $j++) // Bucle interno desde 0 al tamaño del array $service[$i] en el indice $i.
