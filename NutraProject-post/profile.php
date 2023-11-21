@@ -1,13 +1,13 @@
 <?php
 include "includes/conn.php";
 
-function getIt($conn, $i, $k, $productArray) // Función getIt(), recibe los parametros necesarios, la conexión con la base de datos $conn, los índices $i y $k y el array $serviceArray.
+function getIt($conn, $i, $productArray) // Función getIt(), recibe los parametros necesarios, la conexión con la base de datos $conn, los índices $i y $k y el array $serviceArray.
 {
     global $product; // Hago glabales las variables $service y $price para poder usarlas sin pasarlas como referencia.
     global $price;
     $product[] = []; // Al array $service le asigno un array (doble array).
     $price[] = [];
-    $sql = "SELECT product, price FROM product WHERE " . $productArray[$i][$k] . "=id"; // Hago una consulta a la base de datos para obtener el nombre de los servicios y los precios, comparando las id de los servicios con las id almacenadas en el array $serviceArray usando los índices que también llegan como parametro.
+    $sql = "SELECT product, price FROM product WHERE " . $productArray[$i] . "=id"; // Hago una consulta a la base de datos para obtener el nombre de los servicios y los precios, comparando las id de los servicios con las id almacenadas en el array $serviceArray usando los índices que también llegan como parametro.
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     if ($stmt->rowCount() > 0) // Si hay resultados.
@@ -15,7 +15,8 @@ function getIt($conn, $i, $k, $productArray) // Función getIt(), recibe los par
         while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
         {
             array_push($product[$i], $row->product . "<br>"); // Hago un push del contenido del campo product, el nombre del producto, en el array $product en el índice que corresponda, $i.
-            array_push($price[$i], $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del producto, en el array $price. en el índice que corresponda, $i.
+            // array_push($price[$i], $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del producto, en el array $price. en el índice que corresponda, $i.
+            array_push($price[$i], $row->price);
         }
     }
 }
@@ -140,18 +141,13 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                 {
                                     while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
                                     {
-                                        $product_id = $row->product_id;
-                                        $productArray[$i] = explode(',', $product_id);
+                                        $productArray[$i] = $row->product_id;
                                         $i++;
                                     }
 
                                     for ($i = 0; $i < count($productArray); $i++) // Hago un doble bucle cuento el tamaño del array por fuera.
                                     {
-                                        $arrayCount[$i] = count($productArray[$i]) - 1; // Guardo en el array arrayCount el tamaño de cada array, se descuenta 1 ya que siempre hay una coma al final de la cadena y la cuenta como un valor más.
-                                        for ($j = 0; $j < $arrayCount[$i]; $j++)
-                                        {
-                                            getIt($conn, $i, $j, $productArray);
-                                        }
+                                        getIt($conn, $i, $productArray);
                                     }
                                     $ok = false;
                                     $k = 0;
@@ -207,7 +203,7 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                     <span id="page"></span>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button onclick="prev(true)" id="prev" class="btn btn-danger" style="visibility: hidden;">Anteriores Resultados</button>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <button onclick="next(true)" id="next" class="btn btn-primary" style="visibility: hidden;">Siguientes Resultados</button><br>
-                                    <script>change(1, 5, true);</script>
+                                    <script>change(1, 6, true);</script>
                                     <?php
                                     // Se muestran las facturas del cliente.
                                 }

@@ -682,14 +682,10 @@ function changeSize(id, bool) // Esta función cambia el tamaño de las imágene
 
 function tableProfile(i) // Esta función crea una tabla con los datos de las facturas del cliente y retorna el resultado, recibe el índice de los arrays.
 {
-    var my_date = date[i].split("-"); // Hago un split del array date[i] en el array my_date.
-    var my_qtty = qtties[i].split(","); // Hago un split del array qtties[i] en el array my_qtty.
-    var final_qtty = ""; // Declaro y asigno la variable final_qtty como vacia.
-    for (j = 0; j < my_qtty.length; j++) // hago un bucle al tamaño del array my_qtty.
-    {
-        final_qtty += my_qtty[j] + "<br>"; // Concateno en la variable final_qtty el contenido del array my_qtty[j] y hago un salto de linea para cada resultado.
-    }
-    var result = "<tr><td>" + product[i] + "</td><td>" + price[i] + "</td><td><br>" + final_qtty + "</td><td>" + (total[i] * 100 / 121).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
+    var my_date = date[i].split(" "); // Hago un split del array date[i] en el array my_date.
+    var fecha = my_date[0].split("-");
+
+    var result = "<tr><td>" + product[i] + "</td><td>" + price[i] + " €</td><td><br>" + qtties[i] + "</td><td>" + (price[i] * qtties[i]).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + fecha[2] + "/" + fecha[1] + "/"  + fecha[0] + "</td><td>" + my_date[1] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
     return result; // Retorno result.
 }
 
