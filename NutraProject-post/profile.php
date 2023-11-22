@@ -1,22 +1,31 @@
 <?php
 include "includes/conn.php";
 
-function getIt($conn, $i, $j, $productArray) // Función getIt(), recibe los parametros necesarios, la conexión con la base de datos $conn, los índices $i y $k y el array $serviceArray.
+function getIt($conn, $i, $j, $productArray) // Función getIt(), recibe los parametros necesarios, la conexión con la base de datos $conn, las Catidades de facturas y artículos $i y $j y el array $productArray.
 {
     global $product; // Hago glabales las variables $service y $price para poder usarlas sin pasarlas como referencia.
     global $price;
-    $product = []; // Al $product le asigno un array.
-    $price = [];
-    $sql = "SELECT product, price FROM product WHERE " . $productArray[$i][$j] . "=id"; // Hago una consulta a la base de datos para obtener el nombre de los servicios y los precios, comparando las id de los servicios con las id almacenadas en el array $serviceArray usando los índices que también llegan como parametro.
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0) // Si hay resultados.
+    $product[] = []; // Al $product le asigno un array.
+    $price[] = [];
+    echo "<script>
+    var i = " . $i . ";
+    var j = " . $j . ";
+    console.log('Los Valores de i y j son: ' + i + ' y ' + j);</script>";
+    for ($k = 0; $k < $i; $k++)
     {
-        while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
+        for ($l = 0; $l < $j; $l++)
         {
-            array_push($product, $row->product . "<br>"); // Hago un push del contenido del campo product, el nombre del producto, en el array $product en el índice que corresponda, $i.
-            array_push($price, $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del producto, en el array $price. en el índice que corresponda, $i.
-            // array_push($price[$i], $row->price);
+            $sql = "SELECT product, price FROM product WHERE " . $productArray[$k][$l] . "=id"; // Hago una consulta a la base de datos para obtener el nombre de los servicios y los precios, comparando las id de los servicios con las id almacenadas en el array $serviceArray usando los índices que también llegan como parametro.
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) // Si hay resultados.
+            {
+                while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
+                {
+                    array_push($product[$k], $row->product . "<br>"); // Hago un push del contenido del campo product, el nombre del producto, en el array $product en el índice que corresponda, $i.
+                    array_push($price[$k], $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del producto, en el array $price. en el índice que corresponda, $i.
+                }
+            }
         }
     }
 }
@@ -149,13 +158,16 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                         $i++;
                                     }
 
-                                    for ($i = 0; $i < count($productArray); $i++) // Hago un doble bucle cuento el tamaño del array por fuera.
-                                    {
-                                        for ($j = 0; $j < count($productArray[$i]); $j++)
-                                        {
-                                            getIt($conn, $i, $j, $productArray);
-                                        }
-                                    }
+                                    // for ($i = 0; $i < count($productArray); $i++) // Hago un doble bucle cuento el tamaño del array por fuera.
+                                    // {
+                                    //     for ($j = 0; $j < count($productArray[$i]); $j++)
+                                    //     {
+                                    //         getIt($conn, $i, $j, $productArray);
+                                    //     }
+                                    // }
+
+                                    getIt($conn, $i, $j, $productArray);
+
                                     $ok = false;
                                     $k = 0;
                                     $sql = "SELECT * FROM client JOIN invoice ON client.id=invoice.client_id JOIN sold ON sold.invoice_id=invoice.id WHERE client.id=$id;";
@@ -198,10 +210,12 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                         echo "<script>date[" . $i . "] = '" . $date[$i] . "';</script>";
                                         echo "<script>product[" . $i . "] = '';</script>";
                                         echo "<script>price[" . $i . "] = '';</script>";
-                                        for ($j = 0; $j < count($product); $j++) // Bucle interno desde 0 al tamaño del array $product[$i] en el índice $i.
+                                        echo "<script>var xx = " . count($product[$i]) . ";
+                                        console.log('El valor de xx es: ' + xx);</script>";
+                                        for ($j = 0; $j < count($product[$i]); $j++) // Bucle interno desde 0 al tamaño del array $product[$i] en el índice $i.
                                         {
-                                            echo "<script>product[" . $i . "] += '" . $product[$i] . "';</script>"; // Muestro el contenido del doble array $service.
-                                            echo "<script>price[" . $i . "] += '" . $price[$i] . "';</script>";
+                                            echo "<script>product[" . $i . "] += '" . $product[$i][$j] . "';</script>"; // Muestro el contenido del doble array $service.
+                                            echo "<script>price[" . $i . "] += '" . $price[$i][$j] . "';</script>";
                                         }
                                     }
                                     ?>

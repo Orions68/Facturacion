@@ -684,10 +684,8 @@ function tableProfile(i) // Esta función crea una tabla con los datos de las fa
 {
     var my_date = date[i].split(" "); // Hago un split del array date[i] en el array my_date.
     var fecha = my_date[0].split("-");
-    console.log("El Precio en i de 0 es: " + price[i][0]);
-    var my_price = price[i][0].split(" ");
 
-    var result = "<tr><td>" + product[i][0] + "</td><td>" + price[i][0] + " €</td><td><br>" + qtties[i] + "</td><td>" + (my_price[0] * qtties[i]).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + fecha[2] + "/" + fecha[1] + "/"  + fecha[0] + "</td><td>" + my_date[1] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
+    var result = "<tr><td>" + product[i] + "</td><td>" + price[i] + " €</td><td><br>" + qtties[i] + "</td><td>" + (price[i] * qtties[i]).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + fecha[2] + "/" + fecha[1] + "/"  + fecha[0] + "</td><td>" + my_date[1] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
     return result; // Retorno result.
 }
 
