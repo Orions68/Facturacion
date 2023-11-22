@@ -1,34 +1,6 @@
 <?php
 include "includes/conn.php";
-
-function getIt($conn, $i, $j, $productArray) // Función getIt(), recibe los parametros necesarios, la conexión con la base de datos $conn, las Catidades de facturas y artículos $i y $j y el array $productArray.
-{
-    global $product; // Hago glabales las variables $service y $price para poder usarlas sin pasarlas como referencia.
-    global $price;
-    $product[] = []; // Al $product le asigno un array.
-    $price[] = [];
-    echo "<script>
-    var i = " . $i . ";
-    var j = " . $j . ";
-    console.log('Los Valores de i y j son: ' + i + ' y ' + j);</script>";
-    for ($k = 0; $k < $i; $k++)
-    {
-        for ($l = 0; $l < $j; $l++)
-        {
-            $sql = "SELECT product, price FROM product WHERE " . $productArray[$k][$l] . "=id"; // Hago una consulta a la base de datos para obtener el nombre de los servicios y los precios, comparando las id de los servicios con las id almacenadas en el array $serviceArray usando los índices que también llegan como parametro.
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) // Si hay resultados.
-            {
-                while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
-                {
-                    array_push($product[$k], $row->product . "<br>"); // Hago un push del contenido del campo product, el nombre del producto, en el array $product en el índice que corresponda, $i.
-                    array_push($price[$k], $row->price . " €<br>"); // Hago un push del contenido del campo price, el precio del producto, en el array $price. en el índice que corresponda, $i.
-                }
-            }
-        }
-    }
-}
+include "getData.php";
 
 if (isset($_POST["email"])) // Si se recibe el email del cliente
 {
@@ -140,52 +112,53 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                 <h2>Tus Compras</h2>
                                 <br><br>
                             <?php
-                                $product = [];
+                                $index = 0;
+                                $ids = [];
+                                $array = [];
+                                $qtty = [];
+                                $service = [];
+                                $service[] = [];
                                 $price = [];
-                                $i = 0;
-                                $j = 0;
-                                $firstsql = "SELECT COUNT(product_id) AS total, product_id, invoice.id, sold.invoice_id FROM sold JOIN invoice ON invoice.id=sold.invoice_id WHERE invoice.client_id=$id;";
-                                $stmt = $conn->prepare($firstsql);
+                                $price[] = [];
+                                $sql = "SELECT invoice_id, invoice.total, invoice.inv_date, invoice.inv_time FROM sold JOIN invoice ON sold.invoice_id=invoice.id WHERE invoice.client_id=$id GROUP BY invoice_id;";
+                                $stmt = $conn->prepare($sql);
                                 $stmt->execute();
-                                if ($stmt->rowCount() > 0) // Si hay resultados declaro las variables.
+                                if ($stmt->rowCount() > 0)
                                 {
-                                    while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
+                                    $ok = true;
+                                    while ($row = $stmt->fetch(PDO::FETCH_OBJ))
                                     {
-                                        for ($j = 0; $j < $row->total; $j++)
-                                        {
-                                            $productArray[$i][$j] = $row->product_id;
-                                        }
+                                        $ids[$index] = $row->invoice_id;
+                                        $total[$index] = $row->total;
+                                        $date[$index] = $row->inv_date;
+                                        $time[$index] = $row->inv_time;
+                                        $index++;
+                                    }
+                                    $index = 0;
+                                    $array[] = [];
+                                    $qtty[] = [];
+                                    $sql = "SELECT * FROM sold INNER JOIN invoice WHERE invoice.client_id=$id AND invoice.id=sold.invoice_id;";
+                                    $stmt_sold = $conn->prepare($sql);
+                                    $stmt_sold->execute();
+                                    $ids2 = [];
+                                    $serv = [];
+                                    $qtt = [];
+                                    while ($row_sold = $stmt_sold->fetch(PDO::FETCH_OBJ))
+                                    {
+                                        $ids2[$index] = $row_sold->invoice_id;
+                                        $serv[$index] = $row_sold->product_id;
+                                        $qtt[$index] = $row_sold->qtty . "<br>";
+                                        $index++;
+                                    }
+                                    $i = 0;
+                                    $index = 0;
+                                    for ($z = 0; $z < count($ids); $z++)
+                                    {
+                                        recursive($index, $serv, $qtt, $ids2, $i);
                                         $i++;
+                                        $index++;
                                     }
-
-                                    // for ($i = 0; $i < count($productArray); $i++) // Hago un doble bucle cuento el tamaño del array por fuera.
-                                    // {
-                                    //     for ($j = 0; $j < count($productArray[$i]); $j++)
-                                    //     {
-                                    //         getIt($conn, $i, $j, $productArray);
-                                    //     }
-                                    // }
-
-                                    getIt($conn, $i, $j, $productArray);
-
-                                    $ok = false;
-                                    $k = 0;
-                                    $sql = "SELECT * FROM client JOIN invoice ON client.id=invoice.client_id JOIN sold ON sold.invoice_id=invoice.id WHERE client.id=$id;";
-                                    $stmt = $conn->prepare($sql);
-                                    $stmt->execute(); // Hago una consulta a la base de datos de los datos del cliente y sus facturas.
-                                    if ($stmt->rowCount() > 0) // Si hay resultados declaro las variables.
-                                    {
-                                        $ok = true;
-
-                                        while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo los datos en $row.
-                                        {
-                                            $name = $row->name; // Asigno los datos a sus variables.
-                                            $qtty[$k] = $row->qtty;
-                                            $total[$k] = $row->total;
-                                            $date[$k] = $row->date;
-                                            $k++;
-                                        }
-                                    }
+                                    getService($conn, $array, "html");
                                 }
                                 else
                                 {
@@ -196,28 +169,33 @@ if (isset($_SESSION["client"]) && $_SESSION["client"] > 0) // Verifico si la ses
                                 if ($ok) // Si se encontró el alumno.
                                 {
                                     echo "<script>var name = '';</script>"; // Declaro las variavbles de Javascript que usará la paginación.
-                                    echo "<script>var product = [];</script>";
+                                    echo "<script>var invoice = [];</script>";
+                                    echo "<script>var service = [];</script>";
                                     echo "<script>var price = [];</script>";
                                     echo "<script>var qtties = [];</script>";
                                     echo "<script>var total = [];</script>";
                                     echo "<script>var date = [];</script>";
                                     echo "<script>var time = [];</script>";
                                     echo "<script>name = '" . $name . "';</script>"; // Les asigno los datos de PHP.
-                                    for ($i = 0; $i < count($total); $i++)
+                                    for ($i = 0; $i < count($ids); $i++)
+                                {
+                                    echo "<script>invoice[" . $i . "] = " . $ids[$i] . ";</script>
+                                    <script>total[" . $i . "] = '" . $total[$i] . "';</script>
+                                    <script>date[" . $i . "] = '" . $date[$i] . "';</script>
+                                    <script>time[" . $i . "] = '" . $time[$i] . "';</script>";
+                                }
+                                for ($i = 0; $i < count($service); $i++) // Bucle interno desde 0 al tamaño del doble array $service.
+                                {
+                                    echo "<script> service[" . $i . "] = [];
+                                    price[" . $i . "] = [];
+                                    qtties[" . $i . "] = [];</script>";
+                                    for ($j = 0; $j < count($service[$i]); $j++)
                                     {
-                                        echo "<script>qtties[" . $i . "] = '" . $qtty[$i] . "';</script>";
-                                        echo "<script>total[" . $i . "] = '" . $total[$i] . "';</script>";
-                                        echo "<script>date[" . $i . "] = '" . $date[$i] . "';</script>";
-                                        echo "<script>product[" . $i . "] = '';</script>";
-                                        echo "<script>price[" . $i . "] = '';</script>";
-                                        echo "<script>var xx = " . count($product[$i]) . ";
-                                        console.log('El valor de xx es: ' + xx);</script>";
-                                        for ($j = 0; $j < count($product[$i]); $j++) // Bucle interno desde 0 al tamaño del array $product[$i] en el índice $i.
-                                        {
-                                            echo "<script>product[" . $i . "] += '" . $product[$i][$j] . "';</script>"; // Muestro el contenido del doble array $service.
-                                            echo "<script>price[" . $i . "] += '" . $price[$i][$j] . "';</script>";
-                                        }
+                                        echo "<script>qtties[" . $i . "][" . $j . "] = '" . $qtty[$i][$j] . "';</script>
+                                        <script>service[" . $i . "][" . $j . "] = '" . $service[$i][$j] . "';</script>
+                                        <script>price[" . $i . "][" . $j . "] = '" . $price[$i][$j] . "';</script>";
                                     }
+                                }
                                     ?>
                                     <div id="table"></div>
                                     <br>

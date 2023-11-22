@@ -558,7 +558,7 @@ function change(page, qtty, profile) // Función que muestra los resultados de a
 {
     window.page = page; // Asigno la variable page, a la variable global window.page.
     window.qtty = qtty; // Asigno la variable qtty, a la variable global window.qtty.
-    var length = product.length; // La variable length será del tamaño del array id.
+    var length = service.length; // La variable length será del tamaño del array id.
     window.length = length; // Hago global la variable length.
     var btn_next = document.getElementById("next"); // Asigno a la variable btn_next la id del botón con id next, que muestra los resultados siguientes.
     var btn_prev = document.getElementById("prev"); // Asigno a la variable btn_prev la id del botón con id prev, que muestra los resultados anteriores.
@@ -685,7 +685,7 @@ function tableProfile(i) // Esta función crea una tabla con los datos de las fa
     var my_date = date[i].split(" "); // Hago un split del array date[i] en el array my_date.
     var fecha = my_date[0].split("-");
 
-    var result = "<tr><td>" + product[i] + "</td><td>" + price[i] + " €</td><td><br>" + qtties[i] + "</td><td>" + (price[i] * qtties[i]).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + fecha[2] + "/" + fecha[1] + "/"  + fecha[0] + "</td><td>" + my_date[1] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
+    var result = "<tr><td>" + service[i] + "</td><td>" + price[i] + " €</td><td><br>" + qtties[i] + "</td><td>" + (price[i] * qtties[i]).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + fecha[2] + "/" + fecha[1] + "/"  + fecha[0] + "</td><td>" + my_date[1] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
     return result; // Retorno result.
 }
 
