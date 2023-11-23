@@ -164,7 +164,7 @@ if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
                                 while ($row_sold = $stmt_sold->fetch(PDO::FETCH_OBJ))
                                 {
                                     $ids2[$index] = $row_sold->invoice_id;
-                                    $serv[$index] = $row_sold->product_id;
+                                    $serv[$index] = $row_sold->service_id;
                                     $qtt[$index] = $row_sold->qtty . "<br>";
                                     $index++;
                                 }

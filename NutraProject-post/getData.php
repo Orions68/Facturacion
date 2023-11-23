@@ -14,12 +14,12 @@ function getService($conn, $services, $where)
                 $row_service = $stmt->fetch(PDO::FETCH_OBJ);
                 if ($where == "html")
                 {
-                    $service[0][$i] = $row_service->service . "<br>";
+                    $service[0][$i] = $row_service->product . "<br>";
                     $price[0][$i] = $row_service->price . " €<br>";
                 }
                 else
                 {
-                    $service[0][$i] = $row_service->service . "\n";
+                    $service[0][$i] = $row_service->product . "\n";
                     $price[0][$i] = $row_service->price . " €\n";
                 }
             }

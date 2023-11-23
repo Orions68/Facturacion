@@ -566,17 +566,37 @@ function change(page, qtty, profile) // Función que muestra los resultados de a
     var table = document.getElementById("table"); // ID del div que contendrá las imágenes de los artículos y los formularios.
     if (profile) // Si se llama desde el perfil del cliente.
     {
-        var html = "<table><tr><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Parcial</th><th>I.V.A.</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
+        var html = "<table><tr><th>Nº de Factura</th><th>Producto</th><th>Precio</th><th>Cantidad</th><th>Parcial</th><th>Total</th><th>Fecha</th><th>Hora</th></tr>";
         var result = "";
-        for (i = (page - 1) * qtty; i < qtty + ((page - 1) * qtty); i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
+        for (i = (page - 1) * qtty; i < page * qtty; i++) // Aquí hago el bucle desde la página donde esté, a la cantidad de resultados a mostrar.
         {
             if (i < length) // Mientras el valor de i sea menor que el tamaño del array, muestra resultados en pantalla.
             {
-                result += tableProfile(i);
-            }
-            else // Si i es igual a length.
-            {
-                break; // Rompo el bucle for.
+                // result += tableProfile(i);
+                var my_date = date[i].split("-");
+                let size = service[i].length;
+                html += "<tr><td style='width: 150px;'>" + invoice[i] + "</td><td style='width: 250px;'>";
+                for (k = 0; k < size; k++)
+                {
+                    html += service[i][k] + "<br>";
+                }
+                html += "</td><td style='text-align: right; width: 120px;'>";
+                for (k = 0; k < size; k++)
+                {
+                    html += price[i][k] + "<br>";
+                }
+                html += "</td><td style='text-align: right;'>";
+                for (k = 0; k < size; k++)
+                {
+                    html += qtties[i][k] + "<br>";
+                }
+                html += "</td><td style='text-align: right; width: 150px;'>";
+                for (k = 0; k < size; k++)
+                {
+                    html += (parseFloat(price[i][k]) * parseInt(qtties[i][k])).toFixed(2) + " $<br><br>";
+                }
+                html += "</td><td>";
+                html += total[i] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>"; // Cierro la tabla.
             }
         }
         html += result + "</table>";  // Concateno los resultados de la función tableProfile(i) en html, Cierra la tabla en html.
@@ -678,15 +698,6 @@ function changeSize(id, bool) // Esta función cambia el tamaño de las imágene
     {
         img.className = 'mysize'; // Pongo la clase de la imagen como mysize tamaño normal: con 20 pixeles de padding.
     }
-}
-
-function tableProfile(i) // Esta función crea una tabla con los datos de las facturas del cliente y retorna el resultado, recibe el índice de los arrays.
-{
-    var my_date = date[i].split(" "); // Hago un split del array date[i] en el array my_date.
-    var fecha = my_date[0].split("-");
-
-    var result = "<tr><td>" + service[i] + "</td><td>" + price[i] + " €</td><td><br>" + qtties[i] + "</td><td>" + (price[i] * qtties[i]).toFixed(2) + " €</td><td>" + ((total[i] * 100 / 121) * .21).toFixed(2) + " €</td><td>" + total[i] + " €</td><td>" + fecha[2] + "/" + fecha[1] + "/"  + fecha[0] + "</td><td>" + my_date[1] + "</td></tr>"; // Asigno a la variable result el contenido de la tabla con los datos de las facturas del cliente.
-    return result; // Retorno result.
 }
 
 function htmlSearch(i) // Esta función crea una columna con un artículo que tenga stock y retorna el resultado, recibe el índice de los arrays y de las ID.
