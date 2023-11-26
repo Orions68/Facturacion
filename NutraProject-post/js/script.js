@@ -593,10 +593,10 @@ function change(page, qtty, profile) // Función que muestra los resultados de a
                 html += "</td><td style='text-align: right; width: 150px;'>";
                 for (k = 0; k < size; k++)
                 {
-                    html += (parseFloat(price[i][k]) * parseInt(qtties[i][k])).toFixed(2) + " $<br><br>";
+                    html += (parseFloat(price[i][k]) * parseInt(qtties[i][k])).toFixed(2) + " €<br><br>";
                 }
-                html += "</td><td>";
-                html += total[i] + "</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>"; // Cierro la tabla.
+                html += "</td><td style='text-align: right; width: 110px;'>";
+                html += total[i] + " €</td><td>" + my_date[2] + "/" + my_date[1] + "/" + my_date[0] + "</td><td>" + time[i] + "</td></tr>"; // Cierro la tabla.
             }
         }
         html += result + "</table>";  // Concateno los resultados de la función tableProfile(i) en html, Cierra la tabla en html.
