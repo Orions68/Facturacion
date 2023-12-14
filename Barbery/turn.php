@@ -9,13 +9,13 @@ $id = $_POST['id'];
 $date = $_POST['date'];
 $time = $_POST['time'];
 
-$stmt = $conn->prepare("SELECT name FROM client WHERE id='$id'");
+$stmt = $conn->prepare("SELECT name FROM client WHERE id=$id;");
 $stmt->execute();
 if ($stmt->rowCount() > 0)
 {
 	$row = $stmt->fetch(PDO::FETCH_OBJ);
 	$name = $row->name;
-	$stmt = $conn->prepare("UPDATE client SET date='$date', time='$time' WHERE id=$id");
+	$stmt = $conn->prepare("UPDATE client SET date='$date', time='$time' WHERE id=$id;");
 	$stmt->execute();
 	// echo "<script>if (!alert('Turno del Cliente: " . $name . " Registrado.')) window.open('profile.php', '_self')</script>";
 	echo "<script>toast(0, 'Turno del Cliente: " . $name . "', ' Registrado.');</script>";

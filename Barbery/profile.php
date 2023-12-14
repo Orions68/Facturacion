@@ -37,6 +37,7 @@ include "includes/header.php";
 if (isset($_SESSION["client"])) // Verifico si la sesión no está vacia.
 {
     include "includes/modal.html";
+    $ok = false; // Booleano para verificar si los datos son correctos.
     $id = $_SESSION["client"]; // Asigno a la variable $id el valor de la sesión client.
     $sql = "SELECT * FROM client WHERE id=$id;"; // Preparo una consulta por la ID.
     $stmt = $conn->prepare($sql);

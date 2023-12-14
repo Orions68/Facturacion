@@ -15,7 +15,7 @@ $array = [];
 function fillServices($conn, $who)
 {   
     global $service, $price, $qtty;
-    global $index, $array; // Hago globales las variables ya declaradas $index, contiene en índice, $array y $qtty.
+    global $index, $array; // Hago globales las variables ya declaradas $index, contiene el índice, $array y $qtty.
 
     $sql = "SELECT invoice_id FROM sold GROUP BY invoice_id;"; // Obtengo todas las facturas sin las repeticiones.
     $stmt = $conn->prepare($sql);
@@ -54,7 +54,7 @@ function fillServices($conn, $who)
         $index = 0;
         for ($z = 0; $z < count($qtty_id); $z++) // Hago un bucle a la cantidad de facturas distintas que hay.
         {
-            recursive($index, $serv, $qtt, $id, $i, 0); // Llamo a la función recursive que carga todos los servicios, precios y cantidades de todas las facturas.
+            recursive($index, $serv, $qtt, $id, $i); // Llamo a la función recursive que carga todos los servicios, precios y cantidades de todas las facturas.
             $i++;
             $index++;
         }
@@ -275,6 +275,7 @@ include "includes/header.php";
 							<th>Total + I.V.A.</th>
 							</tr>
 						<?php
+                            $sql = "SELECT invoice.id, sold.invoice_id FROM invoice JOIN sold ON invoice.id=sold.invoice_id WHERE YEAR(inv_date)=$year AND MONTH(inv_date)>$date * 3 - 2;";
                             fillServices($conn, "html");
                             $i = 0;
                             foreach($result as $row)

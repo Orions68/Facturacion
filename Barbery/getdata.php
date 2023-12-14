@@ -72,7 +72,7 @@ function recursive($index, $service, $qtt, $id, $i) // Recibe el $index, la cant
     $j = 0;
     global $index, $array, $qtty; // Hago globales las variables ya declaradas $index, contiene en índice, $array y $qtty.
     $count = count($service); // Asigno a $count el tamaño del array $service
-    while ($index < $count - 1 && $id[$index] == $id[$index + 1]) // Mientras $index sea menor que el tamaño del array $service Y las ID de las facturas contiguas sea iguales.
+    while ($index < $count - 1 && $id[$index] == $id[$index + 1]) // Mientras $index sea menor que el tamaño del array $service Y las ID de las facturas contiguas sean iguales.
     {
         $array[$i][$j] = $service[$index]; // Asigno a $array[$i][$j] el contenido de la ID del servicio en $service[$index]. 
         $qtty[$i][$j] = $qtt[$index]; // Lo mismo para el array bidemensional $qtty con la Cantidad del servicio anterior.

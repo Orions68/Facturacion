@@ -13,7 +13,7 @@ include "includes/header.php";
                     <br><br>
 					<?php
 					$date = $_POST['date'];
-					$stmt = $conn->prepare("SELECT email, time FROM client WHERE date='$date' ORDER BY time ASC");
+					$stmt = $conn->prepare("SELECT email, time FROM client WHERE date='$date' ORDER BY time;");
 					$stmt->execute();
 					if ($stmt->rowCount() > 0)
 					{
