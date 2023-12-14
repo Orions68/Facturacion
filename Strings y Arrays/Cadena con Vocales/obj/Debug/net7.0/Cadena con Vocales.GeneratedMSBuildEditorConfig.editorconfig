@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Cadena_con_Vocales
-build_property.ProjectDir = C:\Users\Orion\Documents\César Manrique\DAW\Entornos de Desarrollo\C#\Strings y Arrays\Cadena con Vocales\
+build_property.ProjectDir = C:\Server\www\Facturacion\Strings y Arrays\Cadena con Vocales\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

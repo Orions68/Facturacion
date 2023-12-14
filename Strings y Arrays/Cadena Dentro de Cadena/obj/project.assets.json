@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Cadena Dentro de Cadena\\Cadena Dentro de Cadena.csproj",
+      "projectUniqueName": "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Cadena Dentro de Cadena\\Cadena Dentro de Cadena.csproj",
       "projectName": "Cadena Dentro de Cadena",
-      "projectPath": "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Cadena Dentro de Cadena\\Cadena Dentro de Cadena.csproj",
+      "projectPath": "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Cadena Dentro de Cadena\\Cadena Dentro de Cadena.csproj",
       "packagesPath": "C:\\Users\\Orion\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Cadena Dentro de Cadena\\obj\\",
+      "outputPath": "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Cadena Dentro de Cadena\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Orion\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

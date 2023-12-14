@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj": {}
+    "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj": {
+    "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj",
+        "projectUniqueName": "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj",
         "projectName": "Partiendo Cadenas",
-        "projectPath": "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj",
+        "projectPath": "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Partiendo Cadenas\\Partiendo Cadenas.csproj",
         "packagesPath": "C:\\Users\\Orion\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Orion\\Documents\\César Manrique\\DAW\\Entornos de Desarrollo\\C#\\Strings y Arrays\\Partiendo Cadenas\\obj\\",
+        "outputPath": "C:\\Server\\www\\Facturacion\\Strings y Arrays\\Partiendo Cadenas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Orion\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
