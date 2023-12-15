@@ -42,24 +42,25 @@ function fillServices($conn, $result, $who)
             $index++; // Incremento el $index.
         }
     }
-    $size = [];
-    for ($i = 0; $i < count($id) - 1; $i++)
+
+    $size = 0; // Se Usará para contar la cantidad de Facturas que Hay en el Trimestre Seleccionado.
+    for ($i = 0; $i < count($id) - 1; $i++) // Hago un Bucle Hasta la Cantidad de Facturas - 1(Varias están repetidas ya que una Factura Tiene Varios Servicios y Varios Servicios puede pertenecer a una Única Factura).
     {
-        if ($id[$i] != $id[$i + 1])
-            $size[$i] = $id[$i];
+        if ($id[$i] != $id[$i + 1]) // Si el Número de Factura Actual es Distinta que la Siguiente.
+            $size++; // Incremento $size para saber cuantas facturas hay en total sin repetir.
     }
-    $size[$i] = $id[$i];
-    $index = 0;
-    $i = 0;
-    for ($z = 0; $z < count($size); $z++) // Hago un bucle a la cantidad de facturas distintas que hay.
+    $size++; // Vuelvo a Incrementar $size ya que Salió una Vuelta Antes y Queda una Factura por Contar.
+    $index = 0; // Inicializo $Index a 0.
+    $i = 0; // Inicializo $i a 0.
+    for ($z = 0; $z < $size; $z++) // Hago un bucle a la cantidad de facturas distintas que hay.
     {
-        recursive($index, $serv, $qtt, $id, $i); // Llamo a la función recursive que carga todos los servicios, precios y cantidades de todas las facturas.
-        $i++;
-        $index++;
+        recursive($index, $serv, $qtt, $id, $z); // Llamo a la función recursive que carga todos los servicios y cantidades de las facturas, pasandole $index y $i y el array $serv, $qtt y $id.
+        $index++; // Incremento $index.
     }
+
     if ($who == "excel") // Para Mostrar en Excel.
     {
-        getService($conn, $array, "excel"); // Llamo a getService y le paso $array que tiene las ID de los servicios y el texto excel, para obtener los nombres de los servicios y los precios.
+        getService($conn, $array, "excel"); // Llamo a getService y le paso $conn (La COnexión con la Base de Datos), $array que tiene las ID de los servicios y el texto excel, para obtener los nombres de los servicios y los precios.
     }
     else // Para mostrar en HTML
     {

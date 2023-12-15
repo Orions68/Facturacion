@@ -67,7 +67,7 @@ function getService($conn, $services, $where)
     }
 }
 
-function recursive($index, $service, $qtt, $id, $i) // Recibe el $index, la cantidad de servicios encontrados en todas las facturas, el array $service, la cantidad de cada servicio $qtt, el array con las ID de las facturas $id, $i es el indice de la factura actual ya que esta función se llama en un bucle y $j que siempre es 0.
+function recursive($index, $service, $qtt, $id, $i) // Recibe $index, es el índice de los servicios o cantidades encontradas en todas las facturas (Empezando de 0), el array $service, el array $qtt (contiene las cantidades de cada servicio), el array con las ID de las facturas $id, $i es el indice de la factura actual ya que esta función se llama en un bucle y $j que siempre es 0.
 {
     $j = 0;
     global $index, $array, $qtty; // Hago globales las variables ya declaradas $index, contiene en índice, $array y $qtty.
@@ -77,7 +77,7 @@ function recursive($index, $service, $qtt, $id, $i) // Recibe el $index, la cant
         $array[$i][$j] = $service[$index]; // Asigno a $array[$i][$j] el contenido de la ID del servicio en $service[$index]. 
         $qtty[$i][$j] = $qtt[$index]; // Lo mismo para el array bidemensional $qtty con la Cantidad del servicio anterior.
         $j++; // Incremento $j.
-        $index++; // Incremento $index.
+        $index++; // Incremento $index. $index Mantiene su Valor ya que es una Variable Global y Aunque la Función Termine, al ser Llamada de Vuelta $index no se Reinicia.
     }
     $array[$i][$j] = $service[$index];
     $qtty[$i][$j] = $qtt[$index];
