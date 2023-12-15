@@ -23,7 +23,7 @@ function getService($conn, $services, $where)
     {
         for ($i = 0; $i < count($services); $i++)
         {
-            $sql = "SELECT service, price FROM service WHERE id='$services[$i]'";
+            $sql = "SELECT service, price FROM service WHERE id='" . $services[$i] . "';";
             $stmt = $conn->prepare($sql);
             $stmt->execute();
             if ($stmt->rowCount() > 0)

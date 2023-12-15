@@ -12,30 +12,21 @@ $index = 0;
 $id = [];
 $array = [];
 
-function fillServices($conn, $who)
+function fillServices($conn, $result, $who)
 {   
     global $service, $price, $qtty;
     global $index, $array; // Hago globales las variables ya declaradas $index, contiene el índice, $array y $qtty.
 
-    $sql = "SELECT invoice_id FROM sold GROUP BY invoice_id;"; // Obtengo todas las facturas sin las repeticiones.
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    if ($stmt->rowCount() > 0)
+    $index = 0;
+    $array[] = [];
+    $qtty[] = [];
+    $serv = [];
+    $qtt = [];
+    foreach ($result as $row)
     {
-        $i = 0;
-        $array[] = [];
-        $qtty[] = [];
-        $qtty_id = [];
-        while ($row = $stmt->fetch(PDO::FETCH_OBJ))
-        {
-            $qtty_id[$i] = $row->invoice_id; // Pongo las ID de las factuas en el array $qtty_id.
-            $i++; // Incremento $i.
-        }
-        $sql = "SELECT * FROM sold;"; // Selecciono todo el contenido de sold (vendidos).
+        $sql = "SELECT * FROM sold WHERE " . $row['id'] . "=invoice_id;"; // Selecciono el contenido de sold (vendidos) de las facturas solicitadas.
         $stmt_sold = $conn->prepare($sql);
         $stmt_sold->execute();
-        $serv = [];
-        $qtt = [];
         while ($row_sold = $stmt_sold->fetch(PDO::FETCH_OBJ))
         {
             $id[$index] = $row_sold->invoice_id; // Pongo todas las ID en el array $id, esta vez van las repetidas también.
@@ -50,22 +41,29 @@ function fillServices($conn, $who)
             }
             $index++; // Incremento el $index.
         }
-        $i = 0;
-        $index = 0;
-        for ($z = 0; $z < count($qtty_id); $z++) // Hago un bucle a la cantidad de facturas distintas que hay.
-        {
-            recursive($index, $serv, $qtt, $id, $i); // Llamo a la función recursive que carga todos los servicios, precios y cantidades de todas las facturas.
-            $i++;
-            $index++;
-        }
-        if ($who == "excel") // Para Mostrar en Excel.
-        {
-            getService($conn, $array, "excel"); // Llamo a getService y le paso $array que tiene las ID de los servicios y el texto excel, para obtener los nombres de los servicios y los precios.
-        }
-        else // Para mostrar en HTML
-        {
-            getService($conn, $array, "html"); // Llamo a getService y le paso $array que tiene las ID de los servicios y el texto html, para obtener los nombres de los servicios y los precios.
-        }
+    }
+    $size = [];
+    for ($i = 0; $i < count($id) - 1; $i++)
+    {
+        if ($id[$i] != $id[$i + 1])
+            $size[$i] = $id[$i];
+    }
+    $size[$i] = $id[$i];
+    $index = 0;
+    $i = 0;
+    for ($z = 0; $z < count($size); $z++) // Hago un bucle a la cantidad de facturas distintas que hay.
+    {
+        recursive($index, $serv, $qtt, $id, $i); // Llamo a la función recursive que carga todos los servicios, precios y cantidades de todas las facturas.
+        $i++;
+        $index++;
+    }
+    if ($who == "excel") // Para Mostrar en Excel.
+    {
+        getService($conn, $array, "excel"); // Llamo a getService y le paso $array que tiene las ID de los servicios y el texto excel, para obtener los nombres de los servicios y los precios.
+    }
+    else // Para mostrar en HTML
+    {
+        getService($conn, $array, "html"); // Llamo a getService y le paso $array que tiene las ID de los servicios y el texto html, para obtener los nombres de los servicios y los precios.
     }
 }
 
@@ -121,7 +119,7 @@ if(isset($_POST["export"]))
 
 	$count = 2;
 	$total = 0;
-    fillServices($conn, "excel");
+    fillServices($conn, $result, "excel");
 
     $servi = [];
     $pric = [];
@@ -275,8 +273,8 @@ include "includes/header.php";
 							<th>Total + I.V.A.</th>
 							</tr>
 						<?php
-                            $sql = "SELECT invoice.id, sold.invoice_id FROM invoice JOIN sold ON invoice.id=sold.invoice_id WHERE YEAR(inv_date)=$year AND MONTH(inv_date)>$date * 3 - 2;";
-                            fillServices($conn, "html");
+                            // $sql = "SELECT invoice.id, sold.invoice_id FROM invoice JOIN sold ON invoice.id=sold.invoice_id WHERE YEAR(inv_date)=$year AND MONTH(inv_date)>$date * 3 - 2;";
+                            fillServices($conn, $result, "html");
                             $i = 0;
                             foreach($result as $row)
                             {            	
