@@ -181,32 +181,18 @@ if(isset($_POST["export"]))
 	$active_sheet->getStyle('K' . ($count + 2))->getNumberFormat()->setFormatCode('#,##0.00 $');
 	$active_sheet->setCellValue('A' . ($count + 4), "La Peluquería de Javier Borneo - C.U.I.T 20-22506157-3");
 
-	for ($i = 1; $i < $count; $i++)
+    $active_sheet->getRowDimension(1)->setRowHeight(20); // Cambia el tamaño Vertical de las filas usadas en la planilla.
+    $active_sheet->getColumnDimension(chr(65))->setWidth(15);
+    $active_sheet->getColumnDimension(chr(66))->setWidth(40); // Si es la Letra C le da el tamaño horizontal 40.
+    $active_sheet->getColumnDimension(chr(67))->setWidth(50); // Si es la Letra D le da el tamaño horizontal 50.
+    for ($i = 68; $i < 75; $i++)
     {
-        $active_sheet->getRowDimension($i)->setRowHeight(60); // Cambia el tamaño Vertical de las filas usadas en la planilla.
-
-        if ($i == 1)
-        {
-            $active_sheet->getRowDimension($i)->setRowHeight(20); // Cambia el tamaño Vertical de las filas usadas en la planilla.
-            $active_sheet->getColumnDimension(chr(64 + $i))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 1))->setWidth(40); // Si es la Letra C le da el tamaño horizontal 52.
-            $active_sheet->getColumnDimension(chr(64 + $i + 2))->setWidth(50); // Si es la Letra C le da el tamaño horizontal 52.
-            $active_sheet->getColumnDimension(chr(64 + $i + 3))->setWidth(15); // Si es la Letra C le da el tamaño horizontal 52.
-            $active_sheet->getColumnDimension(chr(64 + $i + 4))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 5))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 6))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 7))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 8))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 9))->setWidth(15);
-            $active_sheet->getColumnDimension(chr(64 + $i + 10))->setWidth(20);
-        }
-
-        if ($i == $count - 1)
-        {
-            $active_sheet->getRowDimension($i + 3)->setRowHeight(40); // Cambia el tamaño Vertical de las filas usadas en la planilla.
-            $active_sheet->getRowDimension($i + 5)->setRowHeight(40); // Cambia el tamaño Vertical de las filas usadas en la planilla.
-        }
+        $active_sheet->getColumnDimension(chr($i))->setWidth(15); // Si es la Letra E le da el tamaño horizontal 15.
     }
+    $active_sheet->getColumnDimension(chr(75))->setWidth(20);
+
+    $active_sheet->getRowDimension($count + 2)->setRowHeight(40); // Cambia el tamaño Vertical de las filas usadas en la planilla.
+    $active_sheet->getRowDimension($count + 4)->setRowHeight(40); // Cambia el tamaño Vertical de las filas usadas en la planilla.
 		
 	$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($file, $_POST["file_type"]);
 
