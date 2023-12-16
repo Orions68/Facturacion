@@ -21,46 +21,84 @@
                 size = cadena.Length;
                 for (int n = 0; n < size; n++)
                 {
-                    if (cadena[n] == 'a')
+                    switch (cadena[n])
                     {
-                        if (!a)
-                        {
-                            a = true;
-                            Console.WriteLine("En la Palabra: {0}, aparece la vocal a.\n", cadena);
-                        }
+                        case 'a':
+                            if (!a)
+                            {
+                                a = true;
+                                Console.WriteLine("En la Palabra: {0}, aparece la vocal a.\n", cadena);
+                            }
+                        break;
+                        case 'e':
+                            if (!e)
+                            {
+                                e = true;
+                                Console.WriteLine("En la Palabra: {0}, aparece la vocal e.\n", cadena);
+                            }
+                        break;
+                        case 'i':
+                            if (!i)
+                            {
+                                i = true;
+                                Console.WriteLine("En la Palabra: {0}, aparece la vocal i.\n", cadena);
+                            }
+                        break;
+                        case 'o':
+                            if (!o)
+                            {
+                                o = true;
+                                Console.WriteLine("En la Palabra: {0}, aparece la vocal o.\n", cadena);
+                            }
+                        break;
+                        default:
+                            if (!u)
+                            {
+                                u = true;
+                                Console.WriteLine("En la Palabra: {0}, aparece la vocal u.\n", cadena);
+                            }
+                        break;
                     }
-                    if (cadena[n] == 'e')
-                    {
-                        if (!e)
-                        {
-                            e = true;
-                            Console.WriteLine("En la Palabra: {0}, aparece la vocal e.\n", cadena);
-                        }
-                    }
-                    if (cadena[n] == 'i')
-                    {
-                        if (!i)
-                        {
-                            i = true;
-                            Console.WriteLine("En la Palabra: {0}, aparece la vocal i.\n", cadena);
-                        }
-                    }
-                    if (cadena[n] == 'o')
-                    {
-                        if (!o)
-                        {
-                            o = true;
-                            Console.WriteLine("En la Palabra: {0}, aparece la vocal o.\n", cadena);
-                        }
-                    }
-                    if (cadena[n] == 'u')
-                    {
-                        if (!u)
-                        {
-                            u = true;
-                            Console.WriteLine("En la Palabra: {0}, aparece la vocal u.\n", cadena);
-                        }
-                    }
+                    // if (cadena[n] == 'a')
+                    // {
+                    //     if (!a)
+                    //     {
+                    //         a = true;
+                    //         Console.WriteLine("En la Palabra: {0}, aparece la vocal a.\n", cadena);
+                    //     }
+                    // }
+                    // if (cadena[n] == 'e')
+                    // {
+                    //     if (!e)
+                    //     {
+                    //         e = true;
+                    //         Console.WriteLine("En la Palabra: {0}, aparece la vocal e.\n", cadena);
+                    //     }
+                    // }
+                    // if (cadena[n] == 'i')
+                    // {
+                    //     if (!i)
+                    //     {
+                    //         i = true;
+                    //         Console.WriteLine("En la Palabra: {0}, aparece la vocal i.\n", cadena);
+                    //     }
+                    // }
+                    // if (cadena[n] == 'o')
+                    // {
+                    //     if (!o)
+                    //     {
+                    //         o = true;
+                    //         Console.WriteLine("En la Palabra: {0}, aparece la vocal o.\n", cadena);
+                    //     }
+                    // }
+                    // if (cadena[n] == 'u')
+                    // {
+                    //     if (!u)
+                    //     {
+                    //         u = true;
+                    //         Console.WriteLine("En la Palabra: {0}, aparece la vocal u.\n", cadena);
+                    //     }
+                    // }
                 }
                 Console.WriteLine("Presiona la Tecla s Para Introducir Otra Palabra, Cuanlquier otra Tecla Para Salir.");
                 seguir = Console.ReadKey().KeyChar;
