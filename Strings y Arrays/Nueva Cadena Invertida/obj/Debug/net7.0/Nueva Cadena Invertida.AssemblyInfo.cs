@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Nueva Cadena Invertida")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d34df6e26edb2ce1713949f346ee25be454e216")]
 [assembly: System.Reflection.AssemblyProductAttribute("Nueva Cadena Invertida")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Nueva Cadena Invertida")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
