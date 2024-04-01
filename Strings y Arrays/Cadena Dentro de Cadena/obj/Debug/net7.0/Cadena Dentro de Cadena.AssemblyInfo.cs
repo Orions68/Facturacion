@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cadena Dentro de Cadena")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d34df6e26edb2ce1713949f346ee25be454e216")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bed93e9ef3a99e2d1c827c830a0a507a77d31118")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cadena Dentro de Cadena")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cadena Dentro de Cadena")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
