@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Palabra Clave")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bed93e9ef3a99e2d1c827c830a0a507a77d31118")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+285138e29f28359b6fb4366f4ca5f847a5d940f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Palabra Clave")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Palabra Clave")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
