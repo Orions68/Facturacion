@@ -21,7 +21,7 @@ if ($stmt->rowCount() > 0)
 	echo "<script>toast(0, 'Turno del Cliente: " . $name . "', ' Registrado.');</script>";
 }
 
-echo "Tu Turno es el día: " . $data . " a las: " . $time . " Hs.";
+echo "Tu Turno es el día: " . $date . " a las: " . $time . " Hs.";
 echo "<br>";
 ?>
 <script>screenSize();</script>

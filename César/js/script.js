@@ -184,7 +184,7 @@ function capture(number) // Crea una imagen de la factura del cliente, para desc
     const print = document.getElementById("printable" + number);
     const image = document.getElementById("image" + number); // Div con ID printable0, contiene la factura.
 
-    // Esto funciona igiual de las dos maneras.
+    // Esto funciona igual de las dos maneras.
 
     // html2canvas(print).then((canvas) => {
     //     const base64image = canvas.toDataURL('image/png'); // genera la imagen base64image a partir del contenido de print, el div que contiene la factura.
