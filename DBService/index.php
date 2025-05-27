@@ -10,8 +10,7 @@ setlocale(LC_ALL, 'spanish'); // Pongo el locale a españa para leer las fechas 
 switch (true) // Hago un switch a la solicitud que sea true.
 {
     case isset($_POST["create"]): // Si llego $_POST["create"].
-        $name = urlencode($_POST["username"]); // Codifico el nombre de usuario ya que puede tener espacios, uso urlencode ya que htmlspecialchars no soluciona el problema
-        // de pasar una cadena con espacios por la url.
+        $name = urlencode($_POST["username"]); // Codifico el nombre de usuario ya que puede tener espacios, uso urlencode ya que htmlspecialchars no soluciona el problema de pasar una cadena con espacios por la url.
         $surname = urlencode($_POST["surname"]);
         $phone = urlencode($_POST["phone"]);
         $email = urlencode($_POST["email"]);

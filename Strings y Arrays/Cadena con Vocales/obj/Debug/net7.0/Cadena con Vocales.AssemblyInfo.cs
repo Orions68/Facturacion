@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cadena con Vocales")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee24c8ec45b7be104ad031a4ac6d4750d04b576c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce96ed1bd98a35d961e4392c79c23db004e8e0f6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cadena con Vocales")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cadena con Vocales")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
