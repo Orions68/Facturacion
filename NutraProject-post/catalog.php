@@ -107,15 +107,15 @@ function lookproducts($conn, $which, $selected) // Esta función hace la consult
     {
         if ($selected == 1) // Si $selected es 1, busca por tipo.
         {
-            $sql = "SELECT * FROM product WHERE kind='$which'"; // Consulto a la base de datos todos los tipos de productos.
+            $sql = "SELECT * FROM product WHERE kind = ?"; // Consulto a la base de datos todos los tipos de productos.
         }
         else // Si $selected no es 1, busca por marca.
         {
-            $sql = "SELECT * FROM product WHERE brand='$which'"; // Consulto a la base de datos todas las marcas de productos.
+            $sql = "SELECT * FROM product WHERE brand = ?"; // Consulto a la base de datos todas las marcas de productos.
         }
     }
     $stmt = $conn->prepare($sql); // Hago la conexión a la base de datos.
-    $stmt->execute(); // La ejecuto.
+    $stmt->execute([$which]); // La ejecuto.
     if ($stmt->rowCount() > 0) // Si hay resultados.
     {
         while ($row = $stmt->fetch(PDO::FETCH_OBJ)) // Cargo en la variable $row todos los campos del resultado de la consulta.
@@ -128,22 +128,35 @@ function lookproducts($conn, $which, $selected) // Esta función hace la consult
             $i++; // Incremento el indice $i.
         }
 
-        for ($j = 0; $j < $i; $j++) // Hago un bucle a la cantidad de datos encontrados(el indice $i).
-        {
-            $sql = "SELECT * FROM product WHERE id = $id[$j]"; // Preparo una consulta a la tabla products de los productos por su ID según su marca o tipo, seleccionado por el cliente.
-            $stmt = $conn->prepare($sql);
-            $stmt->execute();
-            if ($stmt->rowCount() > 0) // Si hay resultados.
-            {
-                while ($row = $stmt->fetch(PDO::FETCH_OBJ))
-                {
+        // for ($j = 0; $j < $i; $j++) // Hago un bucle a la cantidad de datos encontrados(el indice $i).
+        // {
+            // $sql = "SELECT * FROM product WHERE id = ?"; // Preparo una consulta a la tabla products de los productos por su ID según su marca o tipo, seleccionado por el cliente.
+            // $stmt = $conn->prepare($sql);
+            // $stmt->execute([$id[$j]]);
+            // if ($stmt->rowCount() > 0) // Si hay resultados.
+            // {
+            //     while ($row = $stmt->fetch(PDO::FETCH_OBJ))
+            //     {
+            //         $id[$k] = $row->id;
+            //         $price[$k] = $row->price;
+            //         $qtty[$k] = $row->stock;
+            //         $k++;
+            //     }
+            // }
+
+            if (count($id) > 0) {
+                $placeholders = implode(',', array_fill(0, count($id), '?'));
+                $sql = "SELECT * FROM product WHERE id IN ($placeholders)";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute($id);
+                while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
                     $id[$k] = $row->id;
                     $price[$k] = $row->price;
                     $qtty[$k] = $row->stock;
                     $k++;
                 }
             }
-        }
+        // }
         $ok = true; // Pongo $ok a true.
     }
     else // Si no se encotnró ningún resultado en la base de datos.

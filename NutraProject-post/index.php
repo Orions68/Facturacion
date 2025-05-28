@@ -1,5 +1,5 @@
 <?php
-require "includes/conn.php";
+include "includes/conn.php";
 $title = "Nutra Project - Bienvenidos";
 include "includes/header.php";
 if (!empty($_SESSION["client"]))
@@ -121,13 +121,13 @@ include "includes/modal.html";
                     <br><br><br>
                     <form action="search.php" method="post" id="form">
                     <label><select id="kind" name="kind" onchange="document.getElementById('form').submit(); document.getElementById('form').reset();"> Selecciona los Productos por Grupo</label>
-								<option value=""> Elige Tipo de Producto</option>
+								<option value="" disabled selected> Elige Tipo de Producto</option>
 							<?php
 							$stmt = $conn->prepare('SELECT kind FROM product GROUP BY kind ORDER BY kind ASC'); // Obtiene todos los datos de los productos por tipo, para ponerlos en el select.
 							$stmt->execute();
 							while($row = $stmt->fetch(PDO::FETCH_OBJ))
 							{
-								echo  '<option value="' . $row->kind . '">' . $row->kind . '</option>'; // Se muestran los diferentes tipos de productos.
+								echo  '<option value="' . htmlspecialchars($row->kind, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($row->kind, ENT_QUOTES, 'UTF-8') . '</option>'; // Se muestran los diferentes tipos de productos.
 							}
 							?>
 							</select> Selecciona el Grupo</label>
@@ -137,13 +137,13 @@ include "includes/modal.html";
                         <br><br><br><br><br>
                     <form action="search.php" method="post" id="form1">
                     <label><select id="brand" name="brand" onchange="document.getElementById('form1').submit(); document.getElementById('form1').reset();"> Selecciona los Productos por Marca</label>
-								<option value=""> Elige la Marca</option>
+								<option value="" disabled selected> Elige la Marca</option>
 							<?php
 							$stmt = $conn->prepare('SELECT brand FROM product GROUP BY brand ORDER BY brand ASC'); // Obtiene todos los datos de los productos por marca, para ponerlos en el select.
 							$stmt->execute();
 							while($row = $stmt->fetch(PDO::FETCH_OBJ))
 							{
-								echo  '<option value="' . $row->brand . '">' . $row->brand . '</option>'; // Se muestran las diferentes marcas.
+								echo  '<option value="' . htmlspecialchars($row->brand, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($row->brand, ENT_QUOTES, 'UTF-8') . '</option>'; // Se muestran las diferentes marcas.
 							}
 							?>
 							</select> Selecciona por Marca</label><br><br>
